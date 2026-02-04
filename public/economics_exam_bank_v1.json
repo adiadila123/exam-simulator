@@ -1,0 +1,943 @@
+{
+    "version": "1.0",
+    "module": "Economics U10486",
+    "assessment": "Assessment 1 – Local Computer-Based Exam (Practice Simulator)",
+    "duration_minutes": 50,
+    "grading": {
+        "total_points": 100
+    },
+    "question_types": [
+        "mcq_single",
+        "short_answer",
+        "scenario",
+        "diagram_logic"
+    ],
+    "bank": [
+        {
+            "id": "MCQ-001",
+            "type": "mcq_single",
+            "topic": "Demand shift",
+            "points": 2,
+            "prompt": "Which factor causes a rightward shift of the demand curve for a normal good?",
+            "options": {
+                "A": "Increase in the good’s own price",
+                "B": "Increase in consumer income",
+                "C": "Increase in production costs",
+                "D": "Increase in indirect tax on the good"
+            },
+            "answer_key": "B",
+            "rationale": "Higher income increases demand for normal goods; production costs/taxes affect supply."
+        },
+        {
+            "id": "MCQ-002",
+            "type": "mcq_single",
+            "topic": "Elasticity (TR test)",
+            "points": 2,
+            "prompt": "If price rises and total revenue falls, demand is:",
+            "options": {
+                "A": "Perfectly elastic",
+                "B": "Elastic",
+                "C": "Inelastic",
+                "D": "Unit elastic"
+            },
+            "answer_key": "B",
+            "rationale": "With elastic demand, price ↑ leads to TR ↓."
+        },
+        {
+            "id": "MCQ-003",
+            "type": "mcq_single",
+            "topic": "Equilibrium",
+            "points": 2,
+            "prompt": "Market equilibrium occurs where:",
+            "options": {
+                "A": "Demand is maximised",
+                "B": "Supply is maximised",
+                "C": "Quantity demanded equals quantity supplied",
+                "D": "Price is lowest"
+            },
+            "answer_key": "C",
+            "rationale": "Equilibrium is where Qd = Qs."
+        },
+        {
+            "id": "MCQ-004",
+            "type": "mcq_single",
+            "topic": "Government intervention (price ceiling)",
+            "points": 2,
+            "prompt": "A binding price ceiling creates:",
+            "options": {
+                "A": "Surplus",
+                "B": "Shortage",
+                "C": "Excess supply",
+                "D": "Higher equilibrium price"
+            },
+            "answer_key": "B",
+            "rationale": "A ceiling below equilibrium increases Qd and reduces Qs → shortage."
+        },
+        {
+            "id": "MCQ-005",
+            "type": "mcq_single",
+            "topic": "Inelastic demand",
+            "points": 2,
+            "prompt": "Which is most likely to be price inelastic?",
+            "options": {
+                "A": "Luxury holidays",
+                "B": "Sports cars",
+                "C": "Insulin",
+                "D": "Designer clothing"
+            },
+            "answer_key": "C",
+            "rationale": "Necessities with few substitutes tend to be inelastic."
+        },
+        {
+            "id": "MCQ-006",
+            "type": "mcq_single",
+            "topic": "Tax (incidence mechanics)",
+            "points": 2,
+            "prompt": "A specific tax placed on producers usually shifts:",
+            "options": {
+                "A": "Demand right",
+                "B": "Demand left",
+                "C": "Supply left/up",
+                "D": "Supply right/down"
+            },
+            "answer_key": "C",
+            "rationale": "Tax raises marginal cost → supply decreases (left/up)."
+        },
+        {
+            "id": "MCQ-007",
+            "type": "mcq_single",
+            "topic": "Market structure",
+            "points": 2,
+            "prompt": "In perfect competition, individual firms are:",
+            "options": {
+                "A": "Price makers",
+                "B": "Price takers",
+                "C": "Demand controllers",
+                "D": "Monopolists"
+            },
+            "answer_key": "B",
+            "rationale": "Firms face perfectly elastic demand at market price."
+        },
+        {
+            "id": "MCQ-008",
+            "type": "mcq_single",
+            "topic": "Opportunity cost",
+            "points": 2,
+            "prompt": "Opportunity cost is best defined as:",
+            "options": {
+                "A": "The monetary cost of production",
+                "B": "The best alternative forgone",
+                "C": "The sum of fixed and variable costs",
+                "D": "The accounting cost of inputs"
+            },
+            "answer_key": "B",
+            "rationale": "Core definition: value of next best alternative."
+        },
+        {
+            "id": "MCQ-009",
+            "type": "mcq_single",
+            "topic": "PED interpretation",
+            "points": 2,
+            "prompt": "If PED = −2, demand is:",
+            "options": {
+                "A": "Inelastic",
+                "B": "Elastic",
+                "C": "Unit elastic",
+                "D": "Perfectly inelastic"
+            },
+            "answer_key": "B",
+            "rationale": "|PED| > 1 implies elastic demand."
+        },
+        {
+            "id": "MCQ-010",
+            "type": "mcq_single",
+            "topic": "LO1 (prices as allocative mechanism)",
+            "points": 2,
+            "prompt": "Prices allocate resources primarily because they:",
+            "options": {
+                "A": "Remove scarcity",
+                "B": "Signal relative scarcity and preferences",
+                "C": "Fix production levels by law",
+                "D": "Eliminate competition"
+            },
+            "answer_key": "B",
+            "rationale": "Prices transmit information and create incentives."
+        },
+        {
+            "id": "SA-001",
+            "type": "short_answer",
+            "topic": "LO1 (allocative mechanism)",
+            "points": 6,
+            "prompt": "Explain how prices function as an allocative mechanism in a market economy. Use one example.",
+            "mark_scheme": [
+                "Defines allocative role of prices (signals scarcity/preferences)",
+                "Explains incentive effects on consumers (rationing) and producers (profit signal)",
+                "Includes a relevant example"
+            ],
+            "model_answer": "Prices coordinate decisions by signalling relative scarcity and consumer preferences. When a good becomes scarcer, its price tends to rise, which rations demand (some consumers reduce consumption) and incentivises producers to increase supply or reallocate resources towards that market. For example, a rise in coffee prices after a poor harvest reduces quantity demanded and encourages suppliers to source alternatives or expand production elsewhere."
+        },
+        {
+            "id": "SA-002",
+            "type": "short_answer",
+            "topic": "Demand: movement vs shift",
+            "points": 6,
+            "prompt": "Distinguish between (i) a movement along the demand curve and (ii) a shift of the demand curve. Give one cause of each.",
+            "mark_scheme": [
+                "Movement along demand: change in quantity demanded due to own-price change",
+                "Shift of demand: change in demand due to non-price determinant",
+                "One correct cause/example for each"
+            ],
+            "model_answer": "A movement along the demand curve occurs when the good’s own price changes, causing quantity demanded to change. A shift of the demand curve occurs when a non-price determinant (e.g., income, tastes, prices of substitutes/complements) changes, altering demand at every price. For example, a price fall causes movement; higher income for a normal good shifts demand right."
+        },
+        {
+            "id": "SA-003",
+            "type": "short_answer",
+            "topic": "Elasticity & pricing",
+            "points": 6,
+            "prompt": "Explain why price elasticity of demand matters for firms when setting prices.",
+            "mark_scheme": [
+                "Links elasticity to total revenue/profit implications",
+                "Explains elastic vs inelastic pricing effect on TR",
+                "Applies to pricing decision"
+            ],
+            "model_answer": "Elasticity determines how strongly quantity demanded responds to price changes, which affects total revenue. With elastic demand, raising price reduces total revenue because the quantity fall is proportionally larger; with inelastic demand, raising price can increase total revenue. Firms use this to choose price strategies and predict sales, especially when margins and competition are important."
+        },
+        {
+            "id": "SA-004",
+            "type": "short_answer",
+            "topic": "Price floor",
+            "points": 6,
+            "prompt": "Explain two effects of a binding minimum price (price floor).",
+            "mark_scheme": [
+                "Identifies surplus (Qs>Qd) at the floor price",
+                "Explains consequences (waste, storage, black markets, unemployment depending on market)",
+                "Second distinct effect"
+            ],
+            "model_answer": "A binding price floor set above equilibrium creates excess supply (a surplus) because producers supply more while consumers demand less. This can lead to unsold output, pressure for government purchases, or non-price rationing. It may also encourage informal markets or quality reductions as sellers compete without lowering the legal price."
+        },
+        {
+            "id": "SA-005",
+            "type": "short_answer",
+            "topic": "Equilibrium & disequilibrium",
+            "points": 6,
+            "prompt": "Define market equilibrium and explain what happens when the market price is above the equilibrium price.",
+            "mark_scheme": [
+                "Defines equilibrium as Qd=Qs at price P*",
+                "Above equilibrium: surplus/excess supply",
+                "Explains downward pressure on price/adjustment"
+            ],
+            "model_answer": "Market equilibrium occurs where quantity demanded equals quantity supplied at the equilibrium price. If price is above equilibrium, quantity supplied exceeds quantity demanded, creating a surplus. Sellers face unsold stock, which tends to push prices down (or triggers discounting) until equilibrium is restored."
+        },
+        {
+            "id": "SC-001",
+            "type": "scenario",
+            "topic": "Demand + supply shocks",
+            "points": 15,
+            "prompt": "The government introduces a regulation that increases production costs in the steel industry. At the same time, construction demand rises due to public infrastructure spending. Explain: (a) supply curve change, (b) demand curve change, (c) effect on equilibrium price, (d) effect on equilibrium quantity, (e) which effect may dominate and why.",
+            "mark_scheme": [
+                "Supply shifts left/up due to higher costs",
+                "Demand shifts right due to higher construction demand",
+                "Price likely increases (both shifts push price up)",
+                "Quantity is ambiguous (depends on relative magnitudes)",
+                "Explains dominance using relative shift sizes/elasticities"
+            ],
+            "model_answer": "Higher production costs shift supply left (or up), reducing supply at every price. Higher construction activity increases demand, shifting demand right. Both changes tend to raise equilibrium price. The effect on equilibrium quantity is ambiguous because demand raises quantity while the supply contraction reduces it; the net outcome depends on which shift is larger and on elasticities."
+        },
+        {
+            "id": "SC-002",
+            "type": "scenario",
+            "topic": "Tax incidence & inelastic demand",
+            "points": 15,
+            "prompt": "A government introduces a tax on cigarettes. Demand is highly inelastic. Explain: (a) who bears most of the tax burden, (b) what happens to consumer price, (c) what happens to quantity traded, (d) why elasticity determines incidence, (e) link to prices as an allocative mechanism.",
+            "mark_scheme": [
+                "Consumers bear most burden when demand is inelastic",
+                "Consumer price rises substantially",
+                "Quantity falls slightly",
+                "Elasticity explains ability to adjust quantity/avoid tax",
+                "Links to price signals/incentives and resource allocation"
+            ],
+            "model_answer": "With highly inelastic demand, consumers reduce quantity only slightly when price rises, so they bear most of the tax burden via a higher price paid. Quantity traded falls a little. Elasticity determines incidence because the less responsive side cannot easily avoid the tax through changing behaviour. The higher price still signals the good’s increased ‘cost’ to society, discouraging consumption at the margin and influencing allocation."
+        },
+        {
+            "id": "DL-001",
+            "type": "diagram_logic",
+            "topic": "Subsidy effects",
+            "points": 20,
+            "prompt": "Initial equilibrium: P* = £10, Q* = 100. A subsidy to producers is introduced. State: (a) which curve shifts, (b) direction, (c) new equilibrium price relative to £10, (d) new equilibrium quantity relative to 100, (e) effect on consumer surplus (direction only).",
+            "mark_scheme": [
+                "Supply shifts right/down",
+                "Price to consumers falls",
+                "Quantity increases",
+                "Consumer surplus increases",
+                "Uses correct directional reasoning"
+            ],
+            "model_answer": "A producer subsidy reduces effective costs, shifting supply right (down). The equilibrium consumer price falls below £10, equilibrium quantity rises above 100, and consumer surplus increases due to lower price and higher quantity."
+        },
+        /* ===================== EXTRA QUESTIONS FOR SET B ===================== */
+        {
+            "id": "MCQ-011",
+            "type": "mcq_single",
+            "topic": "Supply shift",
+            "points": 2,
+            "prompt": "Which factor is most likely to shift the supply curve left?",
+            "options": {
+                "A": "Improved technology",
+                "B": "A fall in wage costs",
+                "C": "An increase in input prices",
+                "D": "A fall in the price of substitutes"
+            },
+            "answer_key": "C",
+            "rationale": "Higher input prices increase costs → supply decreases."
+        },
+        {
+            "id": "MCQ-012",
+            "type": "mcq_single",
+            "topic": "Substitutes",
+            "points": 2,
+            "prompt": "If the price of a substitute good rises, demand for the original good will:",
+            "options": {
+                "A": "Fall",
+                "B": "Rise",
+                "C": "Not change",
+                "D": "Become perfectly elastic"
+            },
+            "answer_key": "B",
+            "rationale": "Substitutes: price ↑ of substitute → demand shifts right."
+        },
+        {
+            "id": "MCQ-013",
+            "type": "mcq_single",
+            "topic": "Price floor",
+            "points": 2,
+            "prompt": "A binding price floor set above equilibrium typically results in:",
+            "options": {
+                "A": "Shortage",
+                "B": "Surplus",
+                "C": "Higher demand",
+                "D": "Lower supply"
+            },
+            "answer_key": "B",
+            "rationale": "At higher price, Qs>Qd."
+        },
+        {
+            "id": "MCQ-014",
+            "type": "mcq_single",
+            "topic": "PED determinants",
+            "points": 2,
+            "prompt": "Demand tends to be more elastic when:",
+            "options": {
+                "A": "There are many close substitutes",
+                "B": "The good is a necessity",
+                "C": "The time period is very short",
+                "D": "The good takes a small share of income"
+            },
+            "answer_key": "A",
+            "rationale": "Substitutes are a key driver of elasticity."
+        },
+        {
+            "id": "MCQ-015",
+            "type": "mcq_single",
+            "topic": "Revenue & elasticity",
+            "points": 2,
+            "prompt": "When demand is inelastic, a price decrease will typically:",
+            "options": {
+                "A": "Increase total revenue",
+                "B": "Decrease total revenue",
+                "C": "Leave total revenue unchanged",
+                "D": "Make demand elastic"
+            },
+            "answer_key": "B",
+            "rationale": "Inelastic: price ↓ reduces TR."
+        },
+        {
+            "id": "MCQ-016",
+            "type": "mcq_single",
+            "topic": "Monopoly",
+            "points": 2,
+            "prompt": "A key feature of monopoly is:",
+            "options": {
+                "A": "Many sellers and free entry",
+                "B": "Price taking behaviour",
+                "C": "One dominant seller with high barriers to entry",
+                "D": "Perfect information and homogeneous products"
+            },
+            "answer_key": "C",
+            "rationale": "Monopoly: single seller + barriers."
+        },
+        {
+            "id": "MCQ-017",
+            "type": "mcq_single",
+            "topic": "Marginal analysis",
+            "points": 2,
+            "prompt": "Profit maximisation for a firm typically occurs where:",
+            "options": {
+                "A": "Average cost is minimised",
+                "B": "Marginal cost equals marginal revenue",
+                "C": "Marginal cost equals average cost",
+                "D": "Total revenue is zero"
+            },
+            "answer_key": "B",
+            "rationale": "Standard condition: MC = MR."
+        },
+        {
+            "id": "MCQ-018",
+            "type": "mcq_single",
+            "topic": "Shortage response",
+            "points": 2,
+            "prompt": "If a market experiences a shortage at the current price, we would expect the price to:",
+            "options": {
+                "A": "Fall",
+                "B": "Rise",
+                "C": "Stay constant",
+                "D": "Become a price floor"
+            },
+            "answer_key": "B",
+            "rationale": "Shortage puts upward pressure on price."
+        },
+        {
+            "id": "MCQ-019",
+            "type": "mcq_single",
+            "topic": "LO1 (signals)",
+            "points": 2,
+            "prompt": "A rise in price most directly signals that:",
+            "options": {
+                "A": "Demand has become perfectly inelastic",
+                "B": "Supply exceeds demand",
+                "C": "The good has become relatively scarcer (or more valued)",
+                "D": "The government fixed the price"
+            },
+            "answer_key": "C",
+            "rationale": "Price increases typically reflect increased scarcity or demand."
+        },
+        {
+            "id": "MCQ-020",
+            "type": "mcq_single",
+            "topic": "Complement",
+            "points": 2,
+            "prompt": "If the price of a complement falls, demand for the original good will:",
+            "options": {
+                "A": "Fall",
+                "B": "Rise",
+                "C": "Not change",
+                "D": "Shift supply right"
+            },
+            "answer_key": "B",
+            "rationale": "Complements: price ↓ of complement → demand shifts right."
+        },
+        {
+            "id": "SA-006",
+            "type": "short_answer",
+            "topic": "Supply: movement vs shift",
+            "points": 6,
+            "prompt": "Distinguish between (i) a movement along the supply curve and (ii) a shift of the supply curve. Give one cause of each.",
+            "mark_scheme": [
+                "Movement along supply: change in quantity supplied due to own-price change",
+                "Shift of supply: change due to non-price determinant (costs/tech/taxes)",
+                "One correct cause/example for each"
+            ],
+            "model_answer": "A movement along the supply curve occurs when the market price changes, leading firms to change quantity supplied. A shift occurs when a non-price factor changes, such as input costs, technology, or taxes. For example, a higher market price causes movement; higher energy costs shift supply left."
+        },
+        {
+            "id": "SA-007",
+            "type": "short_answer",
+            "topic": "Tax incidence (concept)",
+            "points": 6,
+            "prompt": "Explain what determines whether consumers or producers bear more of an indirect tax.",
+            "mark_scheme": [
+                "Tax incidence depends on relative elasticities of demand and supply",
+                "More inelastic side bears more burden",
+                "Brief explanation of adjustment/avoidance"
+            ],
+            "model_answer": "Tax incidence depends on relative price elasticities: the more inelastic side of the market bears a larger share of the tax burden because it cannot adjust quantity much in response to the price wedge. If demand is inelastic relative to supply, consumers bear more; if supply is inelastic relative to demand, producers bear more."
+        },
+        {
+            "id": "SA-008",
+            "type": "short_answer",
+            "topic": "Consumer vs producer surplus (directional)",
+            "points": 6,
+            "prompt": "Define consumer surplus and producer surplus, and explain how a fall in price affects each (direction only).",
+            "mark_scheme": [
+                "Defines consumer surplus and producer surplus",
+                "Price fall increases CS",
+                "Price fall decreases PS (ceteris paribus)"
+            ],
+            "model_answer": "Consumer surplus is the difference between what consumers are willing to pay and what they actually pay. Producer surplus is the difference between the price producers receive and the minimum price they would accept. A fall in price increases consumer surplus and reduces producer surplus, all else equal."
+        },
+        {
+            "id": "SA-009",
+            "type": "short_answer",
+            "topic": "Market failure (intro) / intervention rationale",
+            "points": 6,
+            "prompt": "Give one reason why governments intervene in markets and briefly explain how intervention can affect allocation.",
+            "mark_scheme": [
+                "One valid rationale (externalities, information failure, market power)",
+                "Explains intervention changes incentives/prices/quantities",
+                "Links to allocation"
+            ],
+            "model_answer": "Governments may intervene due to externalities, where private decisions do not reflect social costs or benefits. A tax on a negative externality raises the price, reducing quantity demanded and reallocating resources away from harmful production/consumption, improving allocative outcomes from a social perspective."
+        },
+        {
+            "id": "SA-010",
+            "type": "short_answer",
+            "topic": "Market structures (comparison)",
+            "points": 6,
+            "prompt": "State two differences between perfect competition and monopoly.",
+            "mark_scheme": [
+                "Perfect competition: many firms, price takers, free entry; monopoly: one firm, price maker, barriers",
+                "Two correct, distinct differences"
+            ],
+            "model_answer": "Perfect competition has many firms, homogeneous products, and free entry, so firms are price takers. Monopoly has a single dominant firm protected by high barriers to entry, giving it price-setting power."
+        },
+        {
+            "id": "SC-003",
+            "type": "scenario",
+            "topic": "Price ceiling in rental market",
+            "points": 15,
+            "prompt": "A city introduces a rent control (price ceiling) below the market equilibrium. Explain: (a) shortage/surplus outcome, (b) non-price rationing mechanisms, (c) likely long-run effects on housing quality/supply, (d) who benefits and who loses, (e) link to allocative role of prices.",
+            "mark_scheme": [
+                "Identifies shortage (Qd>Qs)",
+                "Explains rationing (queues, discrimination, black markets)",
+                "Long-run: reduced maintenance/supply, quality decline",
+                "Distributional effects",
+                "Links to distorted price signals and allocation"
+            ],
+            "model_answer": "A binding rent ceiling creates a shortage because quantity demanded exceeds quantity supplied. Allocation then occurs through non-price rationing (waiting lists, informal payments, discrimination). Over time, landlords may reduce maintenance or exit the market, reducing quality and supply. Some incumbent tenants gain, while prospective renters lose. Prices no longer signal scarcity, so resources are misallocated."
+        },
+        {
+            "id": "SC-004",
+            "type": "scenario",
+            "topic": "Substitute shock + supply constraint",
+            "points": 15,
+            "prompt": "The price of tea rises sharply (tea is a substitute for coffee). Meanwhile, a disease reduces coffee crop yields. Explain the combined effects on the coffee market equilibrium price and quantity, and justify using demand/supply shifts.",
+            "mark_scheme": [
+                "Tea price ↑ shifts coffee demand right",
+                "Coffee yield ↓ shifts coffee supply left",
+                "Price increases unambiguously",
+                "Quantity ambiguous; depends on shift magnitudes",
+                "Clear justification"
+            ],
+            "model_answer": "A rise in tea’s price shifts coffee demand right as consumers substitute toward coffee. A fall in coffee yields shifts supply left. Both shifts increase equilibrium price. The equilibrium quantity is ambiguous because demand increases quantity while supply contraction decreases it; the net depends on which shift is larger."
+        },
+        {
+            "id": "DL-002",
+            "type": "diagram_logic",
+            "topic": "Tax wedge effects",
+            "points": 20,
+            "prompt": "Initial equilibrium: P* = £5, Q* = 200. A per-unit tax is imposed on sellers. State: (a) which curve shifts, (b) direction, (c) what happens to price paid by buyers, (d) what happens to price received by sellers, (e) what happens to equilibrium quantity (direction).",
+            "mark_scheme": [
+                "Supply shifts left/up (or creates wedge)",
+                "Buyer price rises",
+                "Seller net price falls",
+                "Quantity falls",
+                "Consistent wedge logic"
+            ],
+            "model_answer": "A per-unit seller tax shifts supply left/up (equivalently, creates a wedge between buyer and seller prices). Buyers pay a higher price, sellers receive a lower net price, and the traded quantity falls."
+        },
+        /* ===================== EXTRA QUESTIONS FOR SET C ===================== */
+        {
+            "id": "MCQ-021",
+            "type": "mcq_single",
+            "topic": "Normal vs inferior",
+            "points": 2,
+            "prompt": "For an inferior good, an increase in income will:",
+            "options": {
+                "A": "Increase demand",
+                "B": "Decrease demand",
+                "C": "Increase supply",
+                "D": "Not affect demand"
+            },
+            "answer_key": "B",
+            "rationale": "Inferior goods: income ↑ → demand ↓."
+        },
+        {
+            "id": "MCQ-022",
+            "type": "mcq_single",
+            "topic": "PES (time)",
+            "points": 2,
+            "prompt": "Supply is generally more price elastic when:",
+            "options": {
+                "A": "Time period is longer",
+                "B": "Firms have no spare capacity",
+                "C": "Inputs are fixed",
+                "D": "Entry is impossible"
+            },
+            "answer_key": "A",
+            "rationale": "Longer time allows adjustment/entry."
+        },
+        {
+            "id": "MCQ-023",
+            "type": "mcq_single",
+            "topic": "Shortage vs surplus",
+            "points": 2,
+            "prompt": "At a price below equilibrium, the market will experience:",
+            "options": {
+                "A": "Surplus",
+                "B": "Shortage",
+                "C": "No change",
+                "D": "Higher supply"
+            },
+            "answer_key": "B",
+            "rationale": "Below equilibrium: Qd>Qs."
+        },
+        {
+            "id": "MCQ-024",
+            "type": "mcq_single",
+            "topic": "Determinant of demand",
+            "points": 2,
+            "prompt": "An increase in consumer tastes/preferences for a good will:",
+            "options": {
+                "A": "Shift demand right",
+                "B": "Shift demand left",
+                "C": "Shift supply right",
+                "D": "Move along demand"
+            },
+            "answer_key": "A",
+            "rationale": "Preferences are a non-price determinant of demand."
+        },
+        {
+            "id": "MCQ-025",
+            "type": "mcq_single",
+            "topic": "Cost concepts",
+            "points": 2,
+            "prompt": "Which is typically a variable cost?",
+            "options": {
+                "A": "Factory rent",
+                "B": "Interest on debt",
+                "C": "Raw materials",
+                "D": "Insurance premium (fixed contract)"
+            },
+            "answer_key": "C",
+            "rationale": "Raw materials vary with output."
+        },
+        {
+            "id": "MCQ-026",
+            "type": "mcq_single",
+            "topic": "Oligopoly",
+            "points": 2,
+            "prompt": "Oligopoly is best described as a market with:",
+            "options": {
+                "A": "One firm",
+                "B": "Many small firms and free entry",
+                "C": "A few interdependent firms",
+                "D": "Perfectly elastic demand for each firm"
+            },
+            "answer_key": "C",
+            "rationale": "Strategic interdependence among few large firms."
+        },
+        {
+            "id": "MCQ-027",
+            "type": "mcq_single",
+            "topic": "Subsidy",
+            "points": 2,
+            "prompt": "A subsidy to producers typically causes equilibrium:",
+            "options": {
+                "A": "Price to rise and quantity to fall",
+                "B": "Price to fall and quantity to rise",
+                "C": "Price to rise and quantity to rise",
+                "D": "Price to fall and quantity to fall"
+            },
+            "answer_key": "B",
+            "rationale": "Supply increases → price down, quantity up."
+        },
+        {
+            "id": "MCQ-028",
+            "type": "mcq_single",
+            "topic": "Market signals",
+            "points": 2,
+            "prompt": "If demand increases while supply is unchanged, equilibrium will:",
+            "options": {
+                "A": "Price falls, quantity falls",
+                "B": "Price rises, quantity rises",
+                "C": "Price falls, quantity rises",
+                "D": "Price rises, quantity falls"
+            },
+            "answer_key": "B",
+            "rationale": "Demand shift right increases both P and Q."
+        },
+        {
+            "id": "MCQ-029",
+            "type": "mcq_single",
+            "topic": "Price controls",
+            "points": 2,
+            "prompt": "A price floor below equilibrium will:",
+            "options": {
+                "A": "Be binding",
+                "B": "Create a surplus",
+                "C": "Have no effect",
+                "D": "Create a shortage"
+            },
+            "answer_key": "C",
+            "rationale": "If below equilibrium, it does not constrain price."
+        },
+        {
+            "id": "MCQ-030",
+            "type": "mcq_single",
+            "topic": "LO1 incentives",
+            "points": 2,
+            "prompt": "When prices rise, producers are typically incentivised to:",
+            "options": {
+                "A": "Reduce output",
+                "B": "Increase output",
+                "C": "Exit the market",
+                "D": "Ignore costs"
+            },
+            "answer_key": "B",
+            "rationale": "Higher price increases profitability → more supply."
+        },
+        {
+            "id": "SA-011",
+            "type": "short_answer",
+            "topic": "PED calculation (simple)",
+            "points": 6,
+            "prompt": "A price rises from £10 to £12 and quantity demanded falls from 100 to 90. Calculate PED using the midpoint method and interpret (elastic/inelastic).",
+            "mark_scheme": [
+                "Correct midpoint PED calculation",
+                "Correct sign and magnitude",
+                "Correct interpretation (elastic/inelastic)"
+            ],
+            "model_answer": "Midpoint %ΔQ = (90−100)/((90+100)/2)= −10/95= −10.53%. Midpoint %ΔP = (12−10)/((12+10)/2)= 2/11= 18.18%. PED ≈ −0.1053/0.1818 ≈ −0.58, so demand is inelastic."
+        },
+        {
+            "id": "SA-012",
+            "type": "short_answer",
+            "topic": "Non-price rationing",
+            "points": 6,
+            "prompt": "What is non-price rationing? Give one example in a market with a price ceiling.",
+            "mark_scheme": [
+                "Defines allocation mechanism other than price",
+                "Links to shortages under price ceiling",
+                "Provides a valid example (queues, waiting lists, discrimination)"
+            ],
+            "model_answer": "Non-price rationing occurs when goods are allocated by methods other than price, often when a binding price ceiling creates shortages. Examples include queues, waiting lists, or landlords selecting tenants using strict criteria rather than raising rent."
+        },
+        {
+            "id": "SA-013",
+            "type": "short_answer",
+            "topic": "Costs (fixed vs variable)",
+            "points": 6,
+            "prompt": "Define fixed costs and variable costs and give one example of each.",
+            "mark_scheme": [
+                "Defines fixed costs (do not vary with output in short run)",
+                "Defines variable costs (vary with output)",
+                "One correct example each"
+            ],
+            "model_answer": "Fixed costs do not change with output in the short run (e.g., factory rent). Variable costs vary with output (e.g., raw materials or hourly labour)."
+        },
+        {
+            "id": "SA-014",
+            "type": "short_answer",
+            "topic": "Market structure (monopolistic competition)",
+            "points": 6,
+            "prompt": "State two features of monopolistic competition.",
+            "mark_scheme": [
+                "Many firms",
+                "Product differentiation",
+                "Some price-setting power, low barriers to entry (any two)"
+            ],
+            "model_answer": "Monopolistic competition has many firms and differentiated products, so each firm has some price-setting power. Entry barriers are relatively low, allowing new firms to enter in the long run."
+        },
+        {
+            "id": "SA-015",
+            "type": "short_answer",
+            "topic": "LO1 (price mechanism under scarcity)",
+            "points": 6,
+            "prompt": "Explain briefly how the price mechanism responds to scarcity and how this affects resource allocation.",
+            "mark_scheme": [
+                "Scarcity raises price",
+                "Higher price rations demand and incentivises supply",
+                "Resources move toward higher-price (higher value) uses"
+            ],
+            "model_answer": "When a good becomes scarcer, its price rises. The higher price reduces quantity demanded and encourages producers to increase supply, guiding resources toward producing the scarcer good. This reallocation happens because prices signal relative scarcity and profitability."
+        },
+        {
+            "id": "SC-005",
+            "type": "scenario",
+            "topic": "Price floor in labour market (minimum wage)",
+            "points": 15,
+            "prompt": "A minimum wage is set above the equilibrium wage in a competitive labour market. Explain: (a) what happens to labour demanded and supplied, (b) the likely outcome (surplus/shortage), (c) who benefits and who loses, (d) one possible unintended consequence, (e) link to allocative role of prices.",
+            "mark_scheme": [
+                "Labour demanded falls; labour supplied rises",
+                "Creates surplus of labour (unemployment)",
+                "Benefits employed workers at higher wage; harms unemployed/low-skill entrants and firms",
+                "Unintended consequence (informal work, reduced hours, substitution to capital)",
+                "Links to distorted wage signal/allocation"
+            ],
+            "model_answer": "A binding minimum wage above equilibrium reduces labour demanded and increases labour supplied, creating excess supply of labour (unemployment). Those who keep jobs benefit from higher wages, while some workers (especially low-productivity entrants) may be priced out. Firms face higher costs and may reduce hours or substitute capital. The wage no longer clears the market, so allocation via price is distorted."
+        },
+        {
+            "id": "SC-006",
+            "type": "scenario",
+            "topic": "Demand shock & elasticity (public transport)",
+            "points": 15,
+            "prompt": "A city increases public transport fares by 10%. Demand is elastic. Explain the expected impact on (a) quantity demanded, (b) total revenue, and (c) how this informs pricing strategy. Link to the role of prices.",
+            "mark_scheme": [
+                "Elastic demand: quantity falls by more than 10% (proportionally)",
+                "Total revenue likely falls",
+                "Pricing strategy: avoid fare increase or improve service/segment pricing",
+                "Links to price as signal/incentive"
+            ],
+            "model_answer": "With elastic demand, a 10% fare increase leads to a more-than-proportional fall in quantity demanded, so total revenue likely decreases. This suggests fare rises may be counterproductive unless elasticity changes (e.g., fewer substitutes) or quality improves. Prices guide consumer choices; higher prices discourage use and reallocate demand toward substitutes."
+        },
+        {
+            "id": "DL-003",
+            "type": "diagram_logic",
+            "topic": "Demand increase effects",
+            "points": 20,
+            "prompt": "Initial equilibrium: P* = £20, Q* = 50. Consumer income rises and the good is normal. State: (a) which curve shifts, (b) direction, (c) new equilibrium price relative to £20, (d) new equilibrium quantity relative to 50, (e) what happens to total revenue (directional, assuming demand is not perfectly elastic/inelastic).",
+            "mark_scheme": [
+                "Demand shifts right",
+                "Price rises",
+                "Quantity rises",
+                "Total revenue tends to rise when both P and Q rise (general direction)",
+                "Consistent reasoning"
+            ],
+            "model_answer": "Income growth for a normal good shifts demand right. Equilibrium price rises above £20 and equilibrium quantity rises above 50. With both P and Q higher, total revenue generally increases (holding other factors constant)."
+        }
+    ],
+    "exam_sets": {
+        "A": {
+            "duration_minutes": 50,
+            "target_points": 100,
+            "sections": [
+                {
+                    "name": "MCQ",
+                    "question_ids": [
+                        "MCQ-001",
+                        "MCQ-002",
+                        "MCQ-003",
+                        "MCQ-004",
+                        "MCQ-005",
+                        "MCQ-006",
+                        "MCQ-007",
+                        "MCQ-008",
+                        "MCQ-009",
+                        "MCQ-010"
+                    ],
+                    "points_each": 2
+                },
+                {
+                    "name": "Short Answer",
+                    "question_ids": [
+                        "SA-001",
+                        "SA-002",
+                        "SA-003",
+                        "SA-004",
+                        "SA-005"
+                    ]
+                },
+                {
+                    "name": "Scenario",
+                    "question_ids": [
+                        "SC-001",
+                        "SC-002"
+                    ]
+                },
+                {
+                    "name": "Diagram Logic",
+                    "question_ids": [
+                        "DL-001"
+                    ]
+                }
+            ]
+        },
+        "B": {
+            "duration_minutes": 50,
+            "target_points": 100,
+            "sections": [
+                {
+                    "name": "MCQ",
+                    "question_ids": [
+                        "MCQ-011",
+                        "MCQ-012",
+                        "MCQ-013",
+                        "MCQ-014",
+                        "MCQ-015",
+                        "MCQ-016",
+                        "MCQ-017",
+                        "MCQ-018",
+                        "MCQ-019",
+                        "MCQ-020"
+                    ],
+                    "points_each": 2
+                },
+                {
+                    "name": "Short Answer",
+                    "question_ids": [
+                        "SA-006",
+                        "SA-007",
+                        "SA-008",
+                        "SA-009",
+                        "SA-010"
+                    ]
+                },
+                {
+                    "name": "Scenario",
+                    "question_ids": [
+                        "SC-003",
+                        "SC-004"
+                    ]
+                },
+                {
+                    "name": "Diagram Logic",
+                    "question_ids": [
+                        "DL-002"
+                    ]
+                }
+            ]
+        },
+        "C": {
+            "duration_minutes": 50,
+            "target_points": 100,
+            "sections": [
+                {
+                    "name": "MCQ",
+                    "question_ids": [
+                        "MCQ-021",
+                        "MCQ-022",
+                        "MCQ-023",
+                        "MCQ-024",
+                        "MCQ-025",
+                        "MCQ-026",
+                        "MCQ-027",
+                        "MCQ-028",
+                        "MCQ-029",
+                        "MCQ-030"
+                    ],
+                    "points_each": 2
+                },
+                {
+                    "name": "Short Answer",
+                    "question_ids": [
+                        "SA-011",
+                        "SA-012",
+                        "SA-013",
+                        "SA-014",
+                        "SA-015"
+                    ]
+                },
+                {
+                    "name": "Scenario",
+                    "question_ids": [
+                        "SC-005",
+                        "SC-006"
+                    ]
+                },
+                {
+                    "name": "Diagram Logic",
+                    "question_ids": [
+                        "DL-003"
+                    ]
+                }
+            ]
+        }
+    },
+    "import_notes": {
+        "scoring": {
+            "mcq_single": "auto-grade via answer_key",
+            "short_answer": "manual/self-grade via mark_scheme + model_answer",
+            "scenario": "manual/self-grade via mark_scheme + model_answer",
+            "diagram_logic": "manual/self-grade via mark_scheme + model_answer"
+        },
+        "randomisation": "To randomise, shuffle within each section, or randomly sample from bank by topic/type while preserving target points and time."
+    }
+}
