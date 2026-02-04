@@ -1,12 +1,16 @@
 import ExamRunner from "@/components/ExamRunner";
 
+type ExamSearchParams = {
+  set?: string;
+};
+
 type ExamPageProps = {
-  searchParams?: Promise<{ set?: string }>;
+  searchParams?: Promise<ExamSearchParams>;
 };
 
 export default async function ExamPage({ searchParams }: ExamPageProps) {
-  const params = searchParams ? await searchParams : undefined;
-  const setId = params?.set ?? "A";
+  const sp = await searchParams;
+  const setId = sp?.set ?? "A";
 
   return (
     <main className="page">
