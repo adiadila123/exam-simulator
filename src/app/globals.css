@@ -16,6 +16,8 @@
   --danger: #b42318;
   --success: #12805c;
   --shadow: 0 10px 30px rgba(18, 16, 12, 0.08);
+  --font-sans: "Avenir Next", "Futura", "Trebuchet MS", sans-serif;
+  --font-mono: "IBM Plex Mono", "Menlo", "Consolas", monospace;
 }
 
 body {
@@ -27,7 +29,7 @@ body {
       rgba(245, 241, 234, 0.9)
     ),
     linear-gradient(135deg, #f6f1ea, #eef3f6);
-  font-family: var(--font-sans), "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
 }
 

@@ -1,11 +1,12 @@
 import ResultsSummary from "@/components/ResultsSummary";
 
 type ResultsPageProps = {
-  searchParams?: { set?: string };
+  searchParams?: Promise<{ set?: string }>;
 };
 
-export default function ResultsPage({ searchParams }: ResultsPageProps) {
-  const setId = searchParams?.set ?? "A";
+export default async function ResultsPage({ searchParams }: ResultsPageProps) {
+  const params = searchParams ? await searchParams : undefined;
+  const setId = params?.set ?? "A";
 
   return (
     <main className="page">
