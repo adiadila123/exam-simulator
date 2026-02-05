@@ -4,6 +4,7 @@ export type PaceStatus = "Ahead" | "On pace" | "Behind";
 
 const PLAN_SECONDS: Record<QuestionType, number> = {
   mcq_single: (15 * 60) / 10,
+  mcq_multi: (15 * 60) / 10,
   short_answer: (20 * 60) / 5,
   scenario: (15 * 60) / 3,
   diagram_logic: (15 * 60) / 3,

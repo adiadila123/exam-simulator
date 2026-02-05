@@ -24,6 +24,7 @@ import QuestionNavigator from "@/components/QuestionNavigator";
 import { applyMcqResults } from "@/lib/spacedRepetition";
 import DiagramLogicAnswer from "@/components/DiagramLogicAnswer";
 import { computeExamDurationMinutes } from "@/lib/examDuration";
+import { scoreMcqQuestion } from "@/lib/scoring";
 import {
   computeRemainingSeconds,
   shouldAutoSubmit,
@@ -36,7 +37,11 @@ type ExamRunnerProps = {
   mode: "practice" | "real_exam";
 };
 
-const packPrefix = "W2-";
+const packPrefixBySetId: Record<string, string> = {
+  "pack-week2": "W2-",
+  "pack-week1": "W1I-",
+  "pack-week2-ds": "W2DS-",
+};
 const retryPrefix = "retry-";
 const drillPrefix = "drill-";
 
@@ -246,22 +251,28 @@ export default function ExamRunner({ setId, mode }: ExamRunnerProps) {
   const isRetrySession = setId.startsWith(retryPrefix);
   const isDrillSession = setId.startsWith(drillPrefix);
   const isExamTypeSession = setId === "exam1_mcq" || setId === "exam2_written";
+  const isPresetSession = setId.startsWith("preset-");
   const isCustomSession =
     isReviewSession ||
     isPackSession ||
     isRetrySession ||
     isDrillSession ||
-    isExamTypeSession;
+    isExamTypeSession ||
+    isPresetSession;
 
   const packIds = useMemo(() => {
     if (!bank || !isPackSession) {
       return [] as string[];
     }
+    const prefix = packPrefixBySetId[setId] ?? "";
+    if (!prefix) {
+      return [] as string[];
+    }
     return bank.bank
-      .filter((question) => question.id.startsWith(packPrefix))
+      .filter((question) => question.id.startsWith(prefix))
       .map((question) => question.id)
       .sort((a, b) => a.localeCompare(b));
-  }, [bank, isPackSession]);
+  }, [bank, isPackSession, setId]);
 
   useEffect(() => {
     if (!isPackSession || sessionQuestionIds.length > 0 || packIds.length === 0) {
@@ -673,73 +684,122 @@ export default function ExamRunner({ setId, mode }: ExamRunnerProps) {
           <span className="pill">Question {activeIndex + 1}</span>
           <span className="pill">{currentQuestion.points} pts</span>
           <span className="pill">{currentQuestion.topic}</span>
+          {currentQuestion.type === "mcq_multi" && (
+            <span className="pill pill-accent">Select 2</span>
+          )}
         </div>
 
         <p className="question-prompt">{currentQuestion.prompt}</p>
 
-        {currentQuestion.type === "mcq_single" ? (
-          <div>
-            {Object.entries(currentQuestion.options).map(([key, value]) => (
-              <label key={key} className="option">
-                <input
-                  type="radio"
-                  name={currentQuestion.id}
-                  value={key}
-                  checked={answers[currentQuestion.id] === key}
-                  onChange={() => updateAnswer(key)}
-                  disabled={isLocked}
-                />
-                <div>
-                  <strong>{key}.</strong> {value}
-                </div>
-              </label>
-            ))}
-            {mode === "practice" && answers[currentQuestion.id] && (
-              <div className="feedback">
-                <span
-                  className={
-                    answers[currentQuestion.id] === currentQuestion.answer_key
-                      ? "pill pill-success"
-                      : "pill pill-danger"
-                  }
-                >
-                  {answers[currentQuestion.id] === currentQuestion.answer_key
-                    ? "Correct"
-                    : "Incorrect"}
-                </span>
-                {currentQuestion.rationale && (
-                  <p className="muted" style={{ marginTop: 8 }}>
-                    <strong>Rationale:</strong> {currentQuestion.rationale}
-                  </p>
-                )}
-                <div className="btn-row" style={{ marginTop: 12 }}>
-                  {activeIndex >= questions.length - 1 ? (
-                    <button
-                      type="button"
-                      className="btn btn-danger"
-                      onClick={() => submitExam("manual")}
-                      disabled={isLocked}
-                    >
-                      Finish exam
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="btn"
-                      onClick={() =>
-                        setCurrentIndex((prev) =>
-                          Math.min(questions.length - 1, prev + 1),
-                        )
+        {currentQuestion.type === "mcq_single" ||
+        currentQuestion.type === "mcq_multi" ? (
+          (() => {
+            const isMulti = currentQuestion.type === "mcq_multi";
+            const currentAnswer = answers[currentQuestion.id];
+            const selected = Array.isArray(currentAnswer)
+              ? currentAnswer
+              : typeof currentAnswer === "string" && !isMulti
+                ? currentAnswer
+                : isMulti
+                  ? []
+                  : "";
+            const showFeedback =
+              sessionMode === "practice" &&
+              (isMulti
+                ? (selected as string[]).length > 0
+                : Boolean(selected));
+            const score = showFeedback
+              ? scoreMcqQuestion(
+                  currentQuestion,
+                  currentAnswer,
+                  sessionMode,
+                )
+              : null;
+            return (
+              <div>
+                {Object.entries(currentQuestion.options).map(([key, value]) => (
+                  <label key={key} className="option">
+                    <input
+                      type={isMulti ? "checkbox" : "radio"}
+                      name={currentQuestion.id}
+                      value={key}
+                      checked={
+                        isMulti
+                          ? (selected as string[]).includes(key)
+                          : selected === key
                       }
+                      onChange={() => {
+                        if (isMulti) {
+                          const next = new Set(selected as string[]);
+                          if (next.has(key)) {
+                            next.delete(key);
+                          } else {
+                            next.add(key);
+                          }
+                          updateAnswer(Array.from(next));
+                        } else {
+                          updateAnswer(key);
+                        }
+                      }}
                       disabled={isLocked}
+                    />
+                    <div>
+                      <strong>{key}.</strong> {value}
+                    </div>
+                  </label>
+                ))}
+                {showFeedback && score && (
+                  <div className="feedback">
+                    <span
+                      className={
+                        score.isCorrect
+                          ? "pill pill-success"
+                          : score.isPartial
+                            ? "pill pill-accent"
+                            : "pill pill-danger"
+                      }
                     >
-                      Next
-                    </button>
-                  )}
-                </div>
+                      {score.isCorrect
+                        ? "Correct"
+                        : score.isPartial
+                          ? "Partially correct"
+                          : "Incorrect"}
+                    </span>
+                    {currentQuestion.rationale && (
+                      <p className="muted" style={{ marginTop: 8 }}>
+                        <strong>Rationale:</strong> {currentQuestion.rationale}
+                      </p>
+                    )}
+                    <div className="btn-row" style={{ marginTop: 12 }}>
+                      {activeIndex >= questions.length - 1 ? (
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => submitExam("manual")}
+                          disabled={isLocked}
+                        >
+                          Finish exam
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn"
+                          onClick={() =>
+                            setCurrentIndex((prev) =>
+                              Math.min(questions.length - 1, prev + 1),
+                            )
+                          }
+                          disabled={isLocked}
+                        >
+                          Next
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            );
+          })()
         ) : currentQuestion.type === "calculation_table" ? (
           (() => {
             const response = getTableResponse(answers[currentQuestion.id]);

@@ -8,6 +8,7 @@
     },
     "question_types": [
         "mcq_single",
+        "mcq_multi",
         "short_answer",
         "scenario",
         "diagram_logic"
@@ -792,6 +793,1156 @@
                 "Consistent reasoning"
             ],
             "model_answer": "Income growth for a normal good shifts demand right. Equilibrium price rises above £20 and equilibrium quantity rises above 50. With both P and Q higher, total revenue generally increases (holding other factors constant)."
+        },
+        {
+            "id": "ME1-01",
+            "type": "mcq_single",
+            "topic": "Scarcity",
+            "points": 2,
+            "prompt": "Scarcity exists because:",
+            "options": {
+                "A": "Governments control markets",
+                "B": "Resources are limited but wants are unlimited",
+                "C": "Firms maximise profit",
+                "D": "Prices change"
+            },
+            "answer_key": "B",
+            "rationale": "Scarcity is the mismatch between limited resources and unlimited wants."
+        },
+        {
+            "id": "ME1-02",
+            "type": "mcq_single",
+            "topic": "Opportunity cost",
+            "points": 2,
+            "prompt": "Opportunity cost is:",
+            "options": {
+                "A": "The accounting cost",
+                "B": "The marginal cost",
+                "C": "The next best alternative forgone",
+                "D": "The total benefit"
+            },
+            "answer_key": "C",
+            "rationale": "Opportunity cost is the value of the next best alternative given up."
+        },
+        {
+            "id": "ME1-03",
+            "type": "mcq_single",
+            "topic": "Micro vs macro",
+            "points": 2,
+            "prompt": "Microeconomics studies:",
+            "options": {
+                "A": "National inflation",
+                "B": "Individual markets and decision makers",
+                "C": "GDP growth",
+                "D": "Exchange rates"
+            },
+            "answer_key": "B",
+            "rationale": "Microeconomics focuses on individual households, firms, and markets."
+        },
+        {
+            "id": "ME1-04",
+            "type": "mcq_single",
+            "topic": "Marginal principle",
+            "points": 2,
+            "prompt": "A marginal decision is best described as:",
+            "options": {
+                "A": "All-or-nothing",
+                "B": "Based on averages",
+                "C": "Incremental, unit-by-unit",
+                "D": "Government-driven"
+            },
+            "answer_key": "C",
+            "rationale": "Marginal analysis considers small, incremental changes."
+        },
+        {
+            "id": "ME1-05",
+            "type": "mcq_single",
+            "topic": "Positive statements",
+            "points": 2,
+            "prompt": "A positive economic statement is:",
+            "options": {
+                "A": "“Taxes are unfair”",
+                "B": "“Prices should be lower”",
+                "C": "“A tax increase raises prices”",
+                "D": "“Government ought to regulate”"
+            },
+            "answer_key": "C",
+            "rationale": "Positive statements are testable claims about cause and effect."
+        },
+        {
+            "id": "ME1-06",
+            "type": "mcq_single",
+            "topic": "Economic systems",
+            "points": 2,
+            "prompt": "A planned economy is one where:",
+            "options": {
+                "A": "Only consumers decide",
+                "B": "Markets set all prices",
+                "C": "Government controls production and prices",
+                "D": "Firms compete freely"
+            },
+            "answer_key": "C",
+            "rationale": "A planned economy relies on centralized control of production and prices."
+        },
+        {
+            "id": "ME1-07",
+            "type": "mcq_single",
+            "topic": "Effective demand",
+            "points": 2,
+            "prompt": "Effective demand means consumers are:",
+            "options": {
+                "A": "Interested only",
+                "B": "Able only",
+                "C": "Willing and able",
+                "D": "Subsidised"
+            },
+            "answer_key": "C",
+            "rationale": "Effective demand requires both willingness and ability to pay."
+        },
+        {
+            "id": "ME1-08",
+            "type": "mcq_single",
+            "topic": "Law of demand",
+            "points": 2,
+            "prompt": "The law of demand states:",
+            "options": {
+                "A": "Price ↑ → quantity demanded ↑",
+                "B": "Price ↓ → quantity demanded ↓",
+                "C": "Price ↑ → quantity demanded ↓",
+                "D": "Demand is constant"
+            },
+            "answer_key": "C",
+            "rationale": "Higher prices reduce quantity demanded, ceteris paribus."
+        },
+        {
+            "id": "ME1-09",
+            "type": "mcq_single",
+            "topic": "Movements vs shifts",
+            "points": 2,
+            "prompt": "A change in the good’s own price causes:",
+            "options": {
+                "A": "Demand shift",
+                "B": "Movement along demand",
+                "C": "Supply shift",
+                "D": "Market failure"
+            },
+            "answer_key": "B",
+            "rationale": "Own-price changes move along the existing demand curve."
+        },
+        {
+            "id": "ME1-10",
+            "type": "mcq_single",
+            "topic": "Demand shifters",
+            "points": 2,
+            "prompt": "An increase in income (for a normal good) causes:",
+            "options": {
+                "A": "Demand shift right",
+                "B": "Demand shift left",
+                "C": "Movement along demand",
+                "D": "Supply shift"
+            },
+            "answer_key": "A",
+            "rationale": "Higher income increases demand for normal goods."
+        },
+        {
+            "id": "ME1-11",
+            "type": "mcq_single",
+            "topic": "Substitutes/complements",
+            "points": 2,
+            "prompt": "If the price of tea rises and demand for coffee rises, the goods are:",
+            "options": {
+                "A": "Complements",
+                "B": "Substitutes",
+                "C": "Inferior",
+                "D": "Public goods"
+            },
+            "answer_key": "B",
+            "rationale": "When the price of one good rises and demand for another rises, they are substitutes."
+        },
+        {
+            "id": "ME1-12",
+            "type": "mcq_single",
+            "topic": "Normal vs inferior",
+            "points": 2,
+            "prompt": "If income rises and demand falls, the good is:",
+            "options": {
+                "A": "Normal",
+                "B": "Inferior",
+                "C": "Complement",
+                "D": "Elastic"
+            },
+            "answer_key": "B",
+            "rationale": "Inferior goods see demand fall as income rises."
+        },
+        {
+            "id": "ME1-13",
+            "type": "mcq_single",
+            "topic": "Market demand aggregation",
+            "points": 2,
+            "prompt": "Market demand is found by:",
+            "options": {
+                "A": "Vertical summation of prices",
+                "B": "Horizontal summation of quantities",
+                "C": "Averaging demand",
+                "D": "Using supply"
+            },
+            "answer_key": "B",
+            "rationale": "Market demand sums quantities demanded at each price across consumers."
+        },
+        {
+            "id": "ME1-14",
+            "type": "mcq_single",
+            "topic": "Ceteris paribus",
+            "points": 2,
+            "prompt": "Ceteris paribus means:",
+            "options": {
+                "A": "All variables change",
+                "B": "Government holds prices",
+                "C": "Other things equal",
+                "D": "Demand equals supply"
+            },
+            "answer_key": "C",
+            "rationale": "Ceteris paribus isolates a relationship by holding other factors constant."
+        },
+        {
+            "id": "ME1-15",
+            "type": "mcq_single",
+            "topic": "Demand curve",
+            "points": 2,
+            "prompt": "A demand curve slopes downward mainly because of:",
+            "options": {
+                "A": "Increasing costs",
+                "B": "Diminishing marginal utility",
+                "C": "Taxes",
+                "D": "Inflation"
+            },
+            "answer_key": "B",
+            "rationale": "Diminishing marginal utility lowers willingness to pay as quantity increases."
+        },
+        {
+            "id": "ME1-16",
+            "type": "mcq_single",
+            "topic": "Law of supply",
+            "points": 2,
+            "prompt": "The law of supply states:",
+            "options": {
+                "A": "Price ↑ → quantity supplied ↑",
+                "B": "Price ↑ → quantity supplied ↓",
+                "C": "Supply never changes",
+                "D": "Supply equals demand"
+            },
+            "answer_key": "A",
+            "rationale": "Higher prices generally increase quantity supplied, ceteris paribus."
+        },
+        {
+            "id": "ME1-17",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "A fall in production costs will:",
+            "options": {
+                "A": "Shift supply left",
+                "B": "Shift supply right",
+                "C": "Move along supply",
+                "D": "Reduce demand"
+            },
+            "answer_key": "B",
+            "rationale": "Lower costs make production more profitable at each price, shifting supply right."
+        },
+        {
+            "id": "ME1-18",
+            "type": "mcq_single",
+            "topic": "Technology and supply",
+            "points": 2,
+            "prompt": "A change in technology that improves productivity will:",
+            "options": {
+                "A": "Reduce supply",
+                "B": "Shift supply right",
+                "C": "Shift demand right",
+                "D": "Move along demand"
+            },
+            "answer_key": "B",
+            "rationale": "Productivity improvements increase supply at each price."
+        },
+        {
+            "id": "ME1-19",
+            "type": "mcq_single",
+            "topic": "Movements vs shifts",
+            "points": 2,
+            "prompt": "A movement along the supply curve happens when:",
+            "options": {
+                "A": "Input prices change",
+                "B": "Technology changes",
+                "C": "Own price changes",
+                "D": "Taxes change"
+            },
+            "answer_key": "C",
+            "rationale": "Own-price changes move along the existing supply curve."
+        },
+        {
+            "id": "ME1-20",
+            "type": "mcq_single",
+            "topic": "Demand shifters",
+            "points": 2,
+            "prompt": "Which is a demand shifter (not price)?",
+            "options": {
+                "A": "Own price",
+                "B": "Income",
+                "C": "Quantity demanded",
+                "D": "Price tag"
+            },
+            "answer_key": "B",
+            "rationale": "Income changes shift demand when the good is normal or inferior."
+        },
+        {
+            "id": "ME2-SA-01",
+            "type": "short_answer",
+            "topic": "Scarcity & choice",
+            "points": 6,
+            "prompt": "Explain why scarcity forces economic agents to make choices. Include opportunity cost in your explanation.",
+            "mark_scheme": [
+                "Defines scarcity (limited resources, unlimited wants)",
+                "Links scarcity to need for choice",
+                "Defines opportunity cost",
+                "Links choice to foregone alternative",
+                "Clear causal chain",
+                "Correct terminology"
+            ],
+            "model_answer": "Scarcity means resources are limited while wants are unlimited, so agents cannot satisfy all desires. This forces choices about how to allocate scarce resources. Every choice has an opportunity cost: the value of the next best alternative forgone. For example, choosing to spend on one good means giving up consumption of another."
+        },
+        {
+            "id": "ME2-SA-02",
+            "type": "short_answer",
+            "topic": "Micro vs macro",
+            "points": 6,
+            "prompt": "Distinguish between microeconomics and macroeconomics with two clear examples.",
+            "mark_scheme": [
+                "Correct micro definition",
+                "Correct macro definition",
+                "One valid micro example",
+                "One valid macro example",
+                "Contrast stated",
+                "Clarity"
+            ],
+            "model_answer": "Microeconomics studies individual households, firms, and specific markets (e.g., how a firm sets output or how the market for coffee sets price). Macroeconomics studies the economy as a whole (e.g., national unemployment or inflation). The key difference is the unit of analysis: individual markets versus aggregate outcomes."
+        },
+        {
+            "id": "ME2-SA-03",
+            "type": "short_answer",
+            "topic": "Effective demand",
+            "points": 6,
+            "prompt": "Define effective demand and explain why both willingness and ability are required.",
+            "mark_scheme": [
+                "Definition includes willingness",
+                "Includes ability to pay",
+                "Excludes mere desire",
+                "Short example",
+                "Correct terminology",
+                "Clarity"
+            ],
+            "model_answer": "Effective demand is demand backed by both willingness and ability to pay at a given price. A desire without purchasing power does not affect market demand. For example, many people may want a new phone, but only those who can afford it contribute to effective demand."
+        },
+        {
+            "id": "ME2-SA-04",
+            "type": "short_answer",
+            "topic": "Movement vs shift (demand)",
+            "points": 6,
+            "prompt": "Explain the difference between a movement along the demand curve and a shift of the demand curve. Use one cause for each.",
+            "mark_scheme": [
+                "Movement = own price change",
+                "Shift = non-price determinant",
+                "One correct example each",
+                "Direction logic correct",
+                "Terminology correct",
+                "Concise explanation"
+            ],
+            "model_answer": "A movement along the demand curve happens when the good’s own price changes, changing quantity demanded. A shift of the demand curve happens when a non-price factor changes, such as income or tastes, moving demand at every price. Example: a fall in price causes a movement along demand; a rise in income for a normal good shifts demand right."
+        },
+        {
+            "id": "ME2-SA-05",
+            "type": "short_answer",
+            "topic": "Market demand aggregation",
+            "points": 6,
+            "prompt": "Explain how a market demand curve is derived from individual demand curves.",
+            "mark_scheme": [
+                "Horizontal summation",
+                "Quantities summed at each price",
+                "Multiple consumers",
+                "Not price summation",
+                "Clear description",
+                "Correct vocabulary"
+            ],
+            "model_answer": "Market demand is found by horizontally summing individual demand curves. At each price, you add the quantities demanded by all consumers to get total market quantity demanded. It is not an average or a sum of prices."
+        },
+        {
+            "id": "ME2-SC-01",
+            "type": "scenario",
+            "topic": "Demand shifts",
+            "points": 12,
+            "prompt": "Income rises and at the same time the price of a complementary good falls. Explain step-by-step what happens to demand, which direction the curve shifts, and the expected effect on equilibrium price and quantity (direction only).",
+            "mark_scheme": [
+                "Identifies income effect (normal good → right shift)",
+                "Identifies complement price fall → right shift",
+                "Combines effects correctly",
+                "Demand curve shifts right",
+                "Price likely rises",
+                "Quantity rises",
+                "Causal reasoning",
+                "Diagram logic language",
+                "No price vs shift confusion",
+                "Correct terminology",
+                "Structured answer",
+                "Clarity"
+            ],
+            "model_answer": "Higher income for a normal good increases demand, shifting the demand curve to the right. A fall in the price of a complement also raises demand, reinforcing the rightward shift. With demand higher, equilibrium quantity increases and equilibrium price is likely to rise (assuming supply is unchanged)."
+        },
+        {
+            "id": "ME2-SC-02",
+            "type": "scenario",
+            "topic": "Supply shifts",
+            "points": 12,
+            "prompt": "A new technology reduces production cost while a per-unit tax is introduced. Explain the effect on supply from technology and from the tax, the direction of each shift, and the likely net effect (ambiguous allowed if justified).",
+            "mark_scheme": [
+                "Technology → supply right",
+                "Tax → supply left",
+                "Opposite shifts recognised",
+                "Net effect depends on magnitude",
+                "Price logic explained",
+                "Quantity logic explained",
+                "Correct terminology",
+                "Balanced reasoning",
+                "No movement/shift confusion",
+                "Structure",
+                "Clarity",
+                "Conclusion justified"
+            ],
+            "model_answer": "Better technology lowers costs, shifting supply right. A per-unit tax raises costs, shifting supply left. These effects work in opposite directions, so the net change in supply and the equilibrium price/quantity depend on which effect is larger. If the tax dominates, price rises and quantity falls; if technology dominates, price falls and quantity rises."
+        },
+        {
+            "id": "ME2-DL-01",
+            "type": "diagram_logic",
+            "topic": "Demand and supply shifts",
+            "points": 14,
+            "prompt": "For each event, state: (1) which curve shifts, (2) direction, (3) price effect, (4) quantity effect. a) Consumer income rises (normal good) b) Input costs fall c) Own price rises d) Number of firms increases",
+            "mark_scheme": [
+                "a) Demand right; price up; quantity up",
+                "b) Supply right; price down; quantity up",
+                "c) Movement along demand; price up; quantity demanded down",
+                "d) Supply right; price down; quantity up",
+                "Uses correct curve terminology",
+                "States direction clearly",
+                "Links shifts to equilibrium effects",
+                "No movement/shift confusion"
+            ],
+            "model_answer": "a) Demand shifts right → price rises, quantity rises. b) Supply shifts right → price falls, quantity rises. c) Movement along demand (own price rise) → quantity demanded falls. d) Supply shifts right → price falls, quantity rises."
+        },
+        {
+            "id": "ME1B-01",
+            "type": "mcq_single",
+            "topic": "Scarcity",
+            "points": 2,
+            "prompt": "Which statement best reflects scarcity?",
+            "options": {
+                "A": "All wants can be satisfied with enough money",
+                "B": "Resources are unlimited in the long run",
+                "C": "Choices must be made because resources are limited",
+                "D": "Only poor economies face scarcity"
+            },
+            "answer_key": "C",
+            "rationale": "Scarcity means limited resources relative to unlimited wants, forcing choices."
+        },
+        {
+            "id": "ME1B-02",
+            "type": "mcq_single",
+            "topic": "Opportunity cost",
+            "points": 2,
+            "prompt": "If you choose to study instead of working a shift, the opportunity cost is:",
+            "options": {
+                "A": "Your tuition fee",
+                "B": "The wage you gave up",
+                "C": "Your exam grade",
+                "D": "The textbook price"
+            },
+            "answer_key": "B",
+            "rationale": "Opportunity cost is the value of the next best alternative forgone."
+        },
+        {
+            "id": "ME1B-03",
+            "type": "mcq_single",
+            "topic": "Marginal decisions",
+            "points": 2,
+            "prompt": "Which decision is most clearly a marginal decision?",
+            "options": {
+                "A": "Whether to buy a car or not",
+                "B": "Whether to produce one more unit",
+                "C": "Whether to enter a market",
+                "D": "Whether to change industry"
+            },
+            "answer_key": "B",
+            "rationale": "Marginal decisions consider small, incremental changes."
+        },
+        {
+            "id": "ME1B-04",
+            "type": "mcq_single",
+            "topic": "Positive vs normative",
+            "points": 2,
+            "prompt": "Normative economic statements are:",
+            "options": {
+                "A": "Testable",
+                "B": "Fact-based only",
+                "C": "Value-judgement based",
+                "D": "Always true"
+            },
+            "answer_key": "C",
+            "rationale": "Normative statements express value judgments about what ought to be."
+        },
+        {
+            "id": "ME1B-05",
+            "type": "mcq_single",
+            "topic": "Micro vs macro",
+            "points": 2,
+            "prompt": "Which is a macroeconomic issue?",
+            "options": {
+                "A": "Pricing strategy of one firm",
+                "B": "Demand for coffee",
+                "C": "National unemployment rate",
+                "D": "Cost of production of shoes"
+            },
+            "answer_key": "C",
+            "rationale": "Macroeconomics studies economy-wide aggregates like unemployment."
+        },
+        {
+            "id": "ME1B-06",
+            "type": "mcq_single",
+            "topic": "Economic systems",
+            "points": 2,
+            "prompt": "In a mixed economy:",
+            "options": {
+                "A": "Only markets decide",
+                "B": "Only government decides",
+                "C": "Both market forces and government play roles",
+                "D": "No prices exist"
+            },
+            "answer_key": "C",
+            "rationale": "Mixed economies combine market allocation with government intervention."
+        },
+        {
+            "id": "ME1B-07",
+            "type": "mcq_single",
+            "topic": "Effective demand",
+            "points": 2,
+            "prompt": "Demand refers to:",
+            "options": {
+                "A": "Any desire to buy",
+                "B": "Quantity supplied",
+                "C": "Willingness and ability to buy at a price",
+                "D": "Government need"
+            },
+            "answer_key": "C",
+            "rationale": "Demand requires both willingness and ability to pay."
+        },
+        {
+            "id": "ME1B-08",
+            "type": "mcq_single",
+            "topic": "Movements vs shifts",
+            "points": 2,
+            "prompt": "If price falls from £10 to £8 and quantity demanded rises, this is:",
+            "options": {
+                "A": "Demand shift",
+                "B": "Supply shift",
+                "C": "Movement along demand",
+                "D": "Market failure"
+            },
+            "answer_key": "C",
+            "rationale": "A change in the good's own price causes a movement along the demand curve."
+        },
+        {
+            "id": "ME1B-09",
+            "type": "mcq_single",
+            "topic": "Demand shifters",
+            "points": 2,
+            "prompt": "Which factor shifts demand left for a normal good?",
+            "options": {
+                "A": "Income rises",
+                "B": "Income falls",
+                "C": "Price falls",
+                "D": "Supply rises"
+            },
+            "answer_key": "B",
+            "rationale": "Lower income reduces demand for normal goods, shifting demand left."
+        },
+        {
+            "id": "ME1B-10",
+            "type": "mcq_single",
+            "topic": "Substitutes/complements",
+            "points": 2,
+            "prompt": "If two goods are complements, a rise in the price of one will:",
+            "options": {
+                "A": "Increase demand for the other",
+                "B": "Reduce demand for the other",
+                "C": "Not affect demand",
+                "D": "Increase supply"
+            },
+            "answer_key": "B",
+            "rationale": "Complements are consumed together, so a higher price for one reduces demand for the other."
+        },
+        {
+            "id": "ME1B-11",
+            "type": "mcq_single",
+            "topic": "Substitutes/complements",
+            "points": 2,
+            "prompt": "If the price of burgers rises and demand for chicken rises, they are:",
+            "options": {
+                "A": "Complements",
+                "B": "Substitutes",
+                "C": "Inferior goods",
+                "D": "Public goods"
+            },
+            "answer_key": "B",
+            "rationale": "Substitutes have a positive cross-price relationship."
+        },
+        {
+            "id": "ME1B-12",
+            "type": "mcq_single",
+            "topic": "Demand shifters",
+            "points": 2,
+            "prompt": "Which is NOT a demand shifter?",
+            "options": {
+                "A": "Consumer income",
+                "B": "Tastes",
+                "C": "Own price",
+                "D": "Price of substitutes"
+            },
+            "answer_key": "C",
+            "rationale": "Own price changes cause movements along the demand curve."
+        },
+        {
+            "id": "ME1B-13",
+            "type": "mcq_single",
+            "topic": "Ceteris paribus",
+            "points": 2,
+            "prompt": "A demand curve assumes ceteris paribus, meaning:",
+            "options": {
+                "A": "Prices are fixed",
+                "B": "Government controls demand",
+                "C": "Other factors are held constant",
+                "D": "Supply equals demand"
+            },
+            "answer_key": "C",
+            "rationale": "Ceteris paribus holds other relevant factors constant."
+        },
+        {
+            "id": "ME1B-14",
+            "type": "mcq_single",
+            "topic": "Demand curve",
+            "points": 2,
+            "prompt": "Why does demand usually slope downward?",
+            "options": {
+                "A": "Rising costs",
+                "B": "Diminishing marginal utility",
+                "C": "Government rules",
+                "D": "Fixed income"
+            },
+            "answer_key": "B",
+            "rationale": "Diminishing marginal utility lowers willingness to pay at higher quantities."
+        },
+        {
+            "id": "ME1B-15",
+            "type": "mcq_single",
+            "topic": "Supply",
+            "points": 2,
+            "prompt": "Supply represents:",
+            "options": {
+                "A": "Quantity consumers want",
+                "B": "Quantity producers are willing and able to sell",
+                "C": "Total production capacity",
+                "D": "Government output"
+            },
+            "answer_key": "B",
+            "rationale": "Supply is producers' willingness and ability to sell at a given price."
+        },
+        {
+            "id": "ME1B-16",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "A rise in input prices will typically:",
+            "options": {
+                "A": "Shift supply right",
+                "B": "Shift supply left",
+                "C": "Shift demand right",
+                "D": "Move along supply"
+            },
+            "answer_key": "B",
+            "rationale": "Higher input prices raise costs and reduce supply."
+        },
+        {
+            "id": "ME1B-17",
+            "type": "mcq_single",
+            "topic": "Movements vs shifts",
+            "points": 2,
+            "prompt": "A change in own price causes:",
+            "options": {
+                "A": "Supply shift",
+                "B": "Demand shift",
+                "C": "Movement along supply",
+                "D": "Market exit"
+            },
+            "answer_key": "C",
+            "rationale": "Own-price changes move along the supply curve."
+        },
+        {
+            "id": "ME1B-18",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "An increase in the number of firms in a market will:",
+            "options": {
+                "A": "Shift supply right",
+                "B": "Shift supply left",
+                "C": "Shift demand right",
+                "D": "Reduce quantity supplied"
+            },
+            "answer_key": "A",
+            "rationale": "More firms increase market supply."
+        },
+        {
+            "id": "ME1B-19",
+            "type": "mcq_single",
+            "topic": "Market demand aggregation",
+            "points": 2,
+            "prompt": "Market demand is calculated by:",
+            "options": {
+                "A": "Averaging individual prices",
+                "B": "Adding individual quantities at each price",
+                "C": "Multiplying supply",
+                "D": "Government estimation"
+            },
+            "answer_key": "B",
+            "rationale": "Market demand is the horizontal sum of individual quantities."
+        },
+        {
+            "id": "ME1B-20",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "Which change would most likely increase supply?",
+            "options": {
+                "A": "Higher production tax",
+                "B": "Lower technology",
+                "C": "Better production technology",
+                "D": "Higher wages"
+            },
+            "answer_key": "C",
+            "rationale": "Improved technology raises productivity and increases supply."
+        },
+        {
+            "id": "ME1C-01",
+            "type": "mcq_single",
+            "topic": "Scarcity",
+            "points": 2,
+            "prompt": "Scarcity implies that:",
+            "options": {
+                "A": "Only poor countries face limits",
+                "B": "Choices involve trade-offs",
+                "C": "Prices must always rise",
+                "D": "Governments must intervene"
+            },
+            "answer_key": "B",
+            "rationale": "Scarcity forces trade-offs because resources are limited."
+        },
+        {
+            "id": "ME1C-02",
+            "type": "mcq_single",
+            "topic": "Opportunity cost",
+            "points": 2,
+            "prompt": "Opportunity cost is measured as:",
+            "options": {
+                "A": "Total benefit minus total cost",
+                "B": "The highest valued alternative forgone",
+                "C": "Any lost time",
+                "D": "Accounting expense"
+            },
+            "answer_key": "B",
+            "rationale": "Opportunity cost equals the value of the best alternative not chosen."
+        },
+        {
+            "id": "ME1C-03",
+            "type": "mcq_single",
+            "topic": "Marginal analysis",
+            "points": 2,
+            "prompt": "A marginal analysis compares:",
+            "options": {
+                "A": "Total cost vs total revenue",
+                "B": "Average vs total",
+                "C": "Additional benefit vs additional cost",
+                "D": "Fixed vs variable cost"
+            },
+            "answer_key": "C",
+            "rationale": "Marginal analysis focuses on incremental benefit and cost."
+        },
+        {
+            "id": "ME1C-04",
+            "type": "mcq_single",
+            "topic": "Positive vs normative",
+            "points": 2,
+            "prompt": "Which is a positive statement?",
+            "options": {
+                "A": "“Taxes should be lower”",
+                "B": "“Markets are unfair”",
+                "C": "“A price increase reduces quantity demanded”",
+                "D": "“Government ought to regulate rents”"
+            },
+            "answer_key": "C",
+            "rationale": "Positive statements are testable claims about cause and effect."
+        },
+        {
+            "id": "ME1C-05",
+            "type": "mcq_single",
+            "topic": "Micro vs macro",
+            "points": 2,
+            "prompt": "Which is MOST microeconomic?",
+            "options": {
+                "A": "National inflation",
+                "B": "GDP growth",
+                "C": "Pricing of cinema tickets",
+                "D": "Trade deficit"
+            },
+            "answer_key": "C",
+            "rationale": "Microeconomics studies individual markets and pricing decisions."
+        },
+        {
+            "id": "ME1C-06",
+            "type": "mcq_single",
+            "topic": "Effective demand",
+            "points": 2,
+            "prompt": "If both willingness and ability to pay are required, the term is:",
+            "options": {
+                "A": "Desire",
+                "B": "Utility",
+                "C": "Effective demand",
+                "D": "Preference"
+            },
+            "answer_key": "C",
+            "rationale": "Effective demand requires both willingness and ability to pay."
+        },
+        {
+            "id": "ME1C-07",
+            "type": "mcq_single",
+            "topic": "Demand vs quantity demanded",
+            "points": 2,
+            "prompt": "If price rises and quantity demanded falls, this is:",
+            "options": {
+                "A": "Demand decrease",
+                "B": "Demand shift",
+                "C": "Movement along demand",
+                "D": "Supply shift"
+            },
+            "answer_key": "C",
+            "rationale": "Own-price changes cause movements along the demand curve."
+        },
+        {
+            "id": "ME1C-08",
+            "type": "mcq_single",
+            "topic": "Demand shifters",
+            "points": 2,
+            "prompt": "Which change will NOT shift demand?",
+            "options": {
+                "A": "Income change",
+                "B": "Taste change",
+                "C": "Own price change",
+                "D": "Price of complements"
+            },
+            "answer_key": "C",
+            "rationale": "Own-price changes move along demand rather than shift it."
+        },
+        {
+            "id": "ME1C-09",
+            "type": "mcq_single",
+            "topic": "Normal vs inferior",
+            "points": 2,
+            "prompt": "If income rises and demand rises, the good is:",
+            "options": {
+                "A": "Inferior",
+                "B": "Normal",
+                "C": "Complementary",
+                "D": "Elastic"
+            },
+            "answer_key": "B",
+            "rationale": "Demand rising with income indicates a normal good."
+        },
+        {
+            "id": "ME1C-10",
+            "type": "mcq_single",
+            "topic": "Normal vs inferior",
+            "points": 2,
+            "prompt": "If income rises and demand falls, the good is:",
+            "options": {
+                "A": "Substitute",
+                "B": "Complement",
+                "C": "Inferior",
+                "D": "Normal"
+            },
+            "answer_key": "C",
+            "rationale": "Inferior goods see demand fall as income rises."
+        },
+        {
+            "id": "ME1C-11",
+            "type": "mcq_single",
+            "topic": "Substitutes/complements",
+            "points": 2,
+            "prompt": "If the price of printers falls and demand for ink rises, the goods are:",
+            "options": {
+                "A": "Substitutes",
+                "B": "Complements",
+                "C": "Inferior",
+                "D": "Unrelated"
+            },
+            "answer_key": "B",
+            "rationale": "Complements are used together; a price fall in one raises demand for the other."
+        },
+        {
+            "id": "ME1C-12",
+            "type": "mcq_single",
+            "topic": "Market demand aggregation",
+            "points": 2,
+            "prompt": "Market demand equals:",
+            "options": {
+                "A": "Sum of individual prices",
+                "B": "Sum of individual quantities at each price",
+                "C": "Average demand",
+                "D": "Maximum demand"
+            },
+            "answer_key": "B",
+            "rationale": "Market demand is the horizontal sum of individual quantities."
+        },
+        {
+            "id": "ME1C-13",
+            "type": "mcq_single",
+            "topic": "Ceteris paribus",
+            "points": 2,
+            "prompt": "Ceteris paribus means:",
+            "options": {
+                "A": "Price is fixed",
+                "B": "Only income changes",
+                "C": "Other relevant factors are held constant",
+                "D": "Demand equals supply"
+            },
+            "answer_key": "C",
+            "rationale": "Ceteris paribus isolates a relationship by holding other factors constant."
+        },
+        {
+            "id": "ME1C-14",
+            "type": "mcq_single",
+            "topic": "Demand curve",
+            "points": 2,
+            "prompt": "Demand slopes downward because of:",
+            "options": {
+                "A": "Producer profit",
+                "B": "Diminishing marginal utility and substitution effect",
+                "C": "Government tax",
+                "D": "Fixed supply"
+            },
+            "answer_key": "B",
+            "rationale": "Lower marginal utility and substitution lead to lower willingness to pay."
+        },
+        {
+            "id": "ME1C-15",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "If technology improves, supply will:",
+            "options": {
+                "A": "Move along curve",
+                "B": "Shift right",
+                "C": "Shift left",
+                "D": "Reduce demand"
+            },
+            "answer_key": "B",
+            "rationale": "Better technology lowers costs and increases supply at each price."
+        },
+        {
+            "id": "ME1C-16",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "A per-unit tax on producers will:",
+            "options": {
+                "A": "Shift supply left",
+                "B": "Shift demand left",
+                "C": "Move along supply",
+                "D": "Increase demand"
+            },
+            "answer_key": "A",
+            "rationale": "A tax raises costs, shifting supply left."
+        },
+        {
+            "id": "ME1C-17",
+            "type": "mcq_single",
+            "topic": "Movements vs shifts",
+            "points": 2,
+            "prompt": "A movement along the supply curve is caused by:",
+            "options": {
+                "A": "Input cost change",
+                "B": "Technology change",
+                "C": "Own price change",
+                "D": "Firm entry"
+            },
+            "answer_key": "C",
+            "rationale": "Own-price changes move along the supply curve."
+        },
+        {
+            "id": "ME1C-18",
+            "type": "mcq_single",
+            "topic": "Equilibrium shifts",
+            "points": 2,
+            "prompt": "If both demand and supply increase, equilibrium quantity will:",
+            "options": {
+                "A": "Definitely fall",
+                "B": "Definitely rise",
+                "C": "Stay constant",
+                "D": "Rise, but price effect is uncertain"
+            },
+            "answer_key": "D",
+            "rationale": "Both shifts raise quantity; price is ambiguous depending on relative shifts."
+        },
+        {
+            "id": "ME1C-19",
+            "type": "mcq_single",
+            "topic": "Supply shifters",
+            "points": 2,
+            "prompt": "Which is a supply shifter?",
+            "options": {
+                "A": "Consumer income",
+                "B": "Own price",
+                "C": "Input cost",
+                "D": "Quantity demanded"
+            },
+            "answer_key": "C",
+            "rationale": "Input costs affect producers' willingness to supply at each price."
+        },
+        {
+            "id": "ME1C-20",
+            "type": "mcq_single",
+            "topic": "Demand curve",
+            "points": 2,
+            "prompt": "A demand curve shows the relationship between:",
+            "options": {
+                "A": "Income and price",
+                "B": "Price and quantity demanded",
+                "C": "Cost and output",
+                "D": "Supply and demand"
+            },
+            "answer_key": "B",
+            "rationale": "A demand curve relates price to quantity demanded, ceteris paribus."
+        },
+        {
+            "id": "MM-DS-01",
+            "type": "mcq_multi",
+            "topic": "Demand shifters",
+            "points": 3,
+            "prompt": "Which TWO factors shift demand (not movement along)?",
+            "options": {
+                "A": "Own price",
+                "B": "Consumer income",
+                "C": "Tastes/preferences",
+                "D": "Quantity demanded"
+            },
+            "correct_answers": [
+                "B",
+                "C"
+            ],
+            "rationale": "Income and tastes shift demand; own price changes cause movement along the curve."
+        },
+        {
+            "id": "MM-SS-01",
+            "type": "mcq_multi",
+            "topic": "Supply shifters",
+            "points": 3,
+            "prompt": "Which TWO will shift supply right?",
+            "options": {
+                "A": "Better technology",
+                "B": "Lower input costs",
+                "C": "Higher own price",
+                "D": "Higher tax"
+            },
+            "correct_answers": [
+                "A",
+                "B"
+            ],
+            "rationale": "Better technology and lower input costs increase supply; own price is a movement and tax shifts left."
+        },
+        {
+            "id": "MM-CS-01",
+            "type": "mcq_multi",
+            "topic": "Complements/substitutes",
+            "points": 3,
+            "prompt": "Which TWO statements are true for complementary goods?",
+            "options": {
+                "A": "Price ↑ of A → demand for B ↓",
+                "B": "Price ↑ of A → demand for B ↑",
+                "C": "They are used together",
+                "D": "They are always substitutes"
+            },
+            "correct_answers": [
+                "A",
+                "C"
+            ],
+            "rationale": "Complements are used together; a higher price of one reduces demand for the other."
+        },
+        {
+            "id": "MM-NI-01",
+            "type": "mcq_multi",
+            "topic": "Normal vs inferior",
+            "points": 3,
+            "prompt": "Which TWO statements describe a normal good?",
+            "options": {
+                "A": "Demand rises when income rises",
+                "B": "Demand falls when income rises",
+                "C": "Income effect is positive",
+                "D": "It must be a luxury"
+            },
+            "correct_answers": [
+                "A",
+                "C"
+            ],
+            "rationale": "Normal goods have a positive income effect; demand rises with income."
+        },
+        {
+            "id": "MM-NI-02",
+            "type": "mcq_multi",
+            "topic": "Normal vs inferior",
+            "points": 3,
+            "prompt": "Which TWO statements describe an inferior good?",
+            "options": {
+                "A": "Demand rises when income rises",
+                "B": "Demand falls when income rises",
+                "C": "Income effect is negative",
+                "D": "It has no substitutes"
+            },
+            "correct_answers": [
+                "B",
+                "C"
+            ],
+            "rationale": "Inferior goods see demand fall as income rises; the income effect is negative."
+        },
+        {
+            "id": "MM-DS-02",
+            "type": "mcq_multi",
+            "topic": "Demand and supply shifters",
+            "points": 3,
+            "prompt": "Which TWO changes shift demand right for a normal good?",
+            "options": {
+                "A": "Income rises",
+                "B": "Price of a complement falls",
+                "C": "Own price rises",
+                "D": "A per-unit tax on producers"
+            },
+            "correct_answers": [
+                "A",
+                "B"
+            ],
+            "rationale": "Higher income and cheaper complements raise demand; own price is a movement and taxes affect supply."
         }
     ],
     "exam_sets": {

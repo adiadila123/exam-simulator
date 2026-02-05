@@ -3,6 +3,7 @@ import { generatePedMidpointQuestion } from "./questionGenerator.ts";
 
 export type QuestionType =
   | "mcq_single"
+  | "mcq_multi"
   | "short_answer"
   | "scenario"
   | "diagram_logic"
@@ -16,12 +17,21 @@ export type BaseQuestion = {
   prompt: string;
 };
 
-export type McqQuestion = BaseQuestion & {
+export type McqSingleQuestion = BaseQuestion & {
   type: "mcq_single";
   options: Record<string, string>;
   answer_key: string;
   rationale?: string;
 };
+
+export type McqMultiQuestion = BaseQuestion & {
+  type: "mcq_multi";
+  options: Record<string, string>;
+  correct_answers: string[];
+  rationale?: string;
+};
+
+export type McqQuestion = McqSingleQuestion | McqMultiQuestion;
 
 export type WrittenQuestion = BaseQuestion & {
   type: "short_answer" | "scenario" | "diagram_logic" | "calculation_table";
@@ -84,6 +94,7 @@ export type QuestionTemplate = {
 
 const QuestionTypeSchema = z.enum([
   "mcq_single",
+  "mcq_multi",
   "short_answer",
   "scenario",
   "diagram_logic",
@@ -109,10 +120,17 @@ const BaseQuestionSchema = z.object({
   prompt: z.string(),
 });
 
-const McqQuestionSchema = BaseQuestionSchema.extend({
+const McqSingleQuestionSchema = BaseQuestionSchema.extend({
   type: z.literal("mcq_single"),
   options: z.record(z.string(), z.string()),
   answer_key: z.string(),
+  rationale: z.string().optional(),
+});
+
+const McqMultiQuestionSchema = BaseQuestionSchema.extend({
+  type: z.literal("mcq_multi"),
+  options: z.record(z.string(), z.string()),
+  correct_answers: z.array(z.string()).min(1),
   rationale: z.string().optional(),
 });
 
@@ -133,7 +151,9 @@ const PackSchema = z
   .object({
     pack: z.string(),
     source: z.string().optional(),
-    entries: z.array(z.union([McqQuestionSchema, WrittenQuestionSchema])),
+    entries: z.array(
+      z.union([McqSingleQuestionSchema, McqMultiQuestionSchema, WrittenQuestionSchema]),
+    ),
   })
   .passthrough();
 
@@ -173,7 +193,9 @@ const ExamBankSchema = z
       total_points: z.number(),
     }),
     question_types: z.array(QuestionTypeSchema),
-    bank: z.array(z.union([McqQuestionSchema, WrittenQuestionSchema])),
+    bank: z.array(
+      z.union([McqSingleQuestionSchema, McqMultiQuestionSchema, WrittenQuestionSchema]),
+    ),
     exam_sets: z.record(z.string(), ExamSetSchema),
     templates: z.array(QuestionTemplateSchema).optional(),
     import_notes: z.any().optional(),
@@ -201,6 +223,36 @@ export const parseExamBank = (raw: string): ExamBank => {
   return result.data;
 };
 
+const loadPackEntries = async (path: string) => {
+  const packRes = await fetch(path, { cache: "no-store" }).catch(() => null);
+  if (!packRes || packRes.status === 404) {
+    return [] as Array<McqQuestion | WrittenQuestion>;
+  }
+  if (!packRes.ok) {
+    console.warn(`Failed to load seminar pack: ${path}`);
+    return [];
+  }
+  const packRaw = await packRes.text();
+  let packParsed: unknown;
+  try {
+    packParsed = JSON.parse(packRaw);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unable to parse JSON";
+    console.warn(`Invalid seminar pack JSON (${path}): ${message}`);
+    return [];
+  }
+  const packResult = PackSchema.safeParse(packParsed);
+  if (!packResult.success) {
+    const issue = packResult.error.issues[0];
+    const pathLabel = issue.path.length ? issue.path.join(".") : "root";
+    console.warn(
+      `Seminar pack validation failed (${path}) at ${pathLabel}: ${issue.message}`,
+    );
+    return [];
+  }
+  return packResult.data.entries;
+};
+
 export const fetchExamBank = async (): Promise<ExamBank> => {
   const res = await fetch("/economics_exam_bank_v1.json", { cache: "no-store" });
   if (!res.ok) {
@@ -209,37 +261,20 @@ export const fetchExamBank = async (): Promise<ExamBank> => {
   const raw = await res.text();
   const base = parseExamBank(raw);
 
-  const packRes = await fetch("/packs/week2_seminar_pack.json", {
-    cache: "no-store",
-  }).catch(() => null);
-  if (!packRes || packRes.status === 404) {
-    return base;
-  }
-  if (!packRes.ok) {
-    console.warn("Failed to load seminar pack.");
-    return base;
-  }
-  const packRaw = await packRes.text();
-  let packParsed: unknown;
-  try {
-    packParsed = JSON.parse(packRaw);
-  } catch (err) {
-    const message = err instanceof Error ? err.message : "Unable to parse JSON";
-    console.warn(`Invalid seminar pack JSON: ${message}`);
-    return base;
-  }
-  const packResult = PackSchema.safeParse(packParsed);
-  if (!packResult.success) {
-    const issue = packResult.error.issues[0];
-    const path = issue.path.length ? issue.path.join(".") : "root";
-    console.warn(
-      `Seminar pack validation failed at ${path}: ${issue.message}`,
-    );
+  const packPaths = [
+    "/packs/week2_seminar_pack.json",
+    "/packs/week1_intro_pack.json",
+    "/packs/week2_demand_supply_pack.json",
+  ];
+  const packEntries = (
+    await Promise.all(packPaths.map((path) => loadPackEntries(path)))
+  ).flat();
+  if (packEntries.length === 0) {
     return base;
   }
 
   const existingIds = new Set(base.bank.map((question) => question.id));
-  const mergedEntries = packResult.data.entries.filter(
+  const mergedEntries = packEntries.filter(
     (entry) => !existingIds.has(entry.id),
   );
   if (mergedEntries.length === 0) {
@@ -328,6 +363,30 @@ const CATEGORY_ORDER = [
 
 export type TopicCategory = (typeof CATEGORY_ORDER)[number] | "other";
 
+const FULL_SIM_CATEGORY_ORDER = [
+  "fundamentals",
+  "demand",
+  "supply",
+  "shifts",
+  "complements_substitutes",
+  "normal_inferior",
+] as const;
+
+export type FullSimTopicCategory =
+  | (typeof FULL_SIM_CATEGORY_ORDER)[number]
+  | "other";
+
+const FULL_SIM2_CATEGORY_ORDER = [
+  "fundamentals",
+  "demand",
+  "supply",
+  "shift_trap",
+] as const;
+
+export type FullSim2TopicCategory =
+  | (typeof FULL_SIM2_CATEGORY_ORDER)[number]
+  | "other";
+
 const pickCategory = (topic: string, prompt: string): TopicCategory => {
   const text = `${topic} ${prompt}`.toLowerCase();
 
@@ -392,6 +451,423 @@ const pickCategory = (topic: string, prompt: string): TopicCategory => {
   }
 
   return "other";
+};
+
+export const categorizeFullSimTopic = (
+  topic: string,
+  prompt: string,
+): FullSimTopicCategory => {
+  const text = `${topic} ${prompt}`.toLowerCase();
+
+  if (
+    text.includes("complement") ||
+    text.includes("substitute") ||
+    text.includes("cross-price")
+  ) {
+    return "complements_substitutes";
+  }
+  if (text.includes("normal") || text.includes("inferior")) {
+    return "normal_inferior";
+  }
+  if (text.includes("shift") || text.includes("shifter")) {
+    return "shifts";
+  }
+  if (
+    text.includes("supply") ||
+    text.includes("quantity supplied") ||
+    text.includes("input") ||
+    text.includes("technology") ||
+    text.includes("tax") ||
+    text.includes("firm")
+  ) {
+    return "supply";
+  }
+  if (
+    text.includes("demand") ||
+    text.includes("quantity demanded") ||
+    text.includes("law of demand")
+  ) {
+    return "demand";
+  }
+  if (
+    text.includes("scarcity") ||
+    text.includes("opportunity cost") ||
+    text.includes("marginal") ||
+    text.includes("micro") ||
+    text.includes("macro") ||
+    text.includes("normative") ||
+    text.includes("positive") ||
+    text.includes("ceteris")
+  ) {
+    return "fundamentals";
+  }
+  return "other";
+};
+
+export const categorizeFullSim2Topic = (
+  topic: string,
+  prompt: string,
+): FullSim2TopicCategory => {
+  const text = `${topic} ${prompt}`.toLowerCase();
+
+  if (
+    text.includes("movement") ||
+    text.includes("move along") ||
+    text.includes("shift")
+  ) {
+    return "shift_trap";
+  }
+  if (
+    text.includes("supply") ||
+    text.includes("quantity supplied") ||
+    text.includes("input") ||
+    text.includes("technology") ||
+    text.includes("tax") ||
+    text.includes("firm")
+  ) {
+    return "supply";
+  }
+  if (
+    text.includes("demand") ||
+    text.includes("quantity demanded") ||
+    text.includes("complement") ||
+    text.includes("substitute") ||
+    text.includes("normal") ||
+    text.includes("inferior")
+  ) {
+    return "demand";
+  }
+  if (
+    text.includes("scarcity") ||
+    text.includes("opportunity cost") ||
+    text.includes("marginal") ||
+    text.includes("micro") ||
+    text.includes("macro") ||
+    text.includes("normative") ||
+    text.includes("positive") ||
+    text.includes("ceteris")
+  ) {
+    return "fundamentals";
+  }
+  return "other";
+};
+
+const mulberry32 = (seed: number) => {
+  let t = seed >>> 0;
+  return () => {
+    t += 0x6d2b79f5;
+    let result = Math.imul(t ^ (t >>> 15), 1 | t);
+    result ^= result + Math.imul(result ^ (result >>> 7), 61 | result);
+    return ((result ^ (result >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
+const hashStringToSeed = (value: string) => {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash * 31 + value.charCodeAt(i)) >>> 0;
+  }
+  return hash || 1;
+};
+
+const shuffleWithSeed = <T,>(items: T[], seed: number) => {
+  const rng = mulberry32(seed);
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rng() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+};
+
+export const generateFullSimExam1 = (
+  bank: ExamBank,
+  seed: number,
+): { ids: string[]; error?: string } => {
+  const poolPrefixes = ["ME1-", "ME1B-", "ME1C-", "W1I-", "W2-", "W2DS-"];
+  const pool = bank.bank.filter(
+    (question): question is McqQuestion =>
+      (question.type === "mcq_single" || question.type === "mcq_multi") &&
+      poolPrefixes.some((prefix) => question.id.startsWith(prefix)),
+  );
+
+  const byId = new Map(pool.map((question) => [question.id, question]));
+  const uniquePool = Array.from(byId.values());
+
+  if (uniquePool.length < 20) {
+    return {
+      ids: [],
+      error: "Not enough MCQ questions to build the full simulated exam.",
+    };
+  }
+
+  const buckets: Record<string, McqQuestion[]> = {};
+  FULL_SIM_CATEGORY_ORDER.forEach((category) => {
+    buckets[category] = [];
+  });
+
+  uniquePool.forEach((question) => {
+    const category = categorizeFullSimTopic(question.topic, question.prompt);
+    if (category !== "other") {
+      buckets[category].push(question);
+    } else {
+      buckets.fundamentals.push(question);
+    }
+  });
+
+  const shuffledBuckets: Record<string, McqQuestion[]> = {};
+  FULL_SIM_CATEGORY_ORDER.forEach((category, index) => {
+    shuffledBuckets[category] = shuffleWithSeed(
+      buckets[category],
+      hashStringToSeed(`${seed}-${category}-${index}`),
+    );
+  });
+
+  const selected: McqQuestion[] = [];
+  let madeProgress = true;
+  let multiCount = 0;
+  while (selected.length < 20 && madeProgress) {
+    madeProgress = false;
+    for (const category of FULL_SIM_CATEGORY_ORDER) {
+      if (selected.length >= 20) {
+        break;
+      }
+      const bucket = shuffledBuckets[category];
+      if (bucket.length > 0) {
+        const candidate = bucket[bucket.length - 1];
+        if (candidate.type === "mcq_multi" && multiCount >= 3) {
+          bucket.pop();
+          continue;
+        }
+        const picked = bucket.pop() as McqQuestion;
+        selected.push(picked);
+        if (picked.type === "mcq_multi") {
+          multiCount += 1;
+        }
+        madeProgress = true;
+      }
+    }
+  }
+
+  if (selected.length < 20) {
+    const remaining = FULL_SIM_CATEGORY_ORDER.flatMap(
+      (category) => shuffledBuckets[category],
+    );
+    const fallback = shuffleWithSeed(
+      remaining,
+      hashStringToSeed(`${seed}-fallback`),
+    );
+    for (const question of fallback) {
+      if (selected.length >= 20) {
+        break;
+      }
+      if (question.type === "mcq_multi" && multiCount >= 3) {
+        continue;
+      }
+      if (!selected.some((item) => item.id === question.id)) {
+        selected.push(question);
+        if (question.type === "mcq_multi") {
+          multiCount += 1;
+        }
+      }
+    }
+  }
+
+  if (selected.length < 20) {
+    return {
+      ids: [],
+      error: "Unable to assemble a full simulated exam without duplicates.",
+    };
+  }
+
+  return { ids: selected.map((question) => question.id) };
+};
+
+type FullSim2Options = {
+  includeMcq?: boolean;
+};
+
+export const generateFullSimExam2 = (
+  bank: ExamBank,
+  seed: number,
+  { includeMcq = false }: FullSim2Options = {},
+): { ids: string[]; error?: string } => {
+  const pools = {
+    short_answer: bank.bank.filter((question) => question.type === "short_answer"),
+    scenario: bank.bank.filter((question) => question.type === "scenario"),
+    diagram_logic: bank.bank.filter((question) => question.type === "diagram_logic"),
+    mcq_single: includeMcq
+      ? bank.bank.filter((question) => question.type === "mcq_single")
+      : [],
+  };
+
+  const required = {
+    short_answer: 5,
+    scenario: 2,
+    diagram_logic: 1,
+    mcq_single: includeMcq ? 5 : 0,
+  };
+
+  const poolTooSmall = Object.entries(required).some(
+    ([key, count]) => pools[key as keyof typeof pools].length < count,
+  );
+  if (poolTooSmall) {
+    return {
+      ids: [],
+      error:
+        "Not enough written questions to build the full simulated exam. Add more questions to the bank.",
+    };
+  }
+
+  const shuffledPools = {
+    short_answer: shuffleWithSeed(
+      pools.short_answer,
+      hashStringToSeed(`${seed}-sa`),
+    ),
+    scenario: shuffleWithSeed(
+      pools.scenario,
+      hashStringToSeed(`${seed}-sc`),
+    ),
+    diagram_logic: shuffleWithSeed(
+      pools.diagram_logic,
+      hashStringToSeed(`${seed}-dl`),
+    ),
+    mcq_single: shuffleWithSeed(
+      pools.mcq_single,
+      hashStringToSeed(`${seed}-mcq`),
+    ),
+  };
+
+  const selected: Array<WrittenQuestion | McqQuestion> = [];
+  const remaining = { ...required };
+  const counts = {
+    fundamentals: 0,
+    demand: 0,
+    supply: 0,
+    shift_trap: 0,
+  };
+
+  const typeOrder: Array<keyof typeof remaining> = [
+    "short_answer",
+    "scenario",
+    "diagram_logic",
+  ];
+  if (includeMcq) {
+    typeOrder.push("mcq_single");
+  }
+
+  const takeFromPool = (
+    predicate: (question: WrittenQuestion | McqQuestion) => boolean,
+  ) => {
+    for (const type of typeOrder) {
+      if (remaining[type] <= 0) {
+        continue;
+      }
+      const pool = shuffledPools[type];
+      const index = pool.findIndex(predicate);
+      if (index >= 0) {
+        const [picked] = pool.splice(index, 1);
+        selected.push(picked as WrittenQuestion | McqQuestion);
+        remaining[type] -= 1;
+        const category = categorizeFullSim2Topic(
+          picked.topic,
+          picked.prompt,
+        );
+        if (category !== "other") {
+          counts[category] += 1;
+        }
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const ensure = (
+    predicate: (question: WrittenQuestion | McqQuestion) => boolean,
+    times: number,
+  ) => {
+    for (let i = 0; i < times; i += 1) {
+      if (!takeFromPool(predicate)) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const okFundamentals = ensure(
+    (question) => categorizeFullSim2Topic(question.topic, question.prompt) === "fundamentals",
+    1,
+  );
+  const okDemand = ensure(
+    (question) => categorizeFullSim2Topic(question.topic, question.prompt) === "demand",
+    2,
+  );
+  const okSupply = ensure(
+    (question) => categorizeFullSim2Topic(question.topic, question.prompt) === "supply",
+    2,
+  );
+  const okShift = ensure(
+    (question) => categorizeFullSim2Topic(question.topic, question.prompt) === "shift_trap",
+    1,
+  );
+
+  if (!okFundamentals || !okDemand || !okSupply || !okShift) {
+    return {
+      ids: [],
+      error:
+        "Unable to satisfy topic balancing for the full simulated written exam. Add more tagged questions.",
+    };
+  }
+
+  for (const type of typeOrder) {
+    while (remaining[type] > 0) {
+      const pool = shuffledPools[type];
+      const next = pool.shift();
+      if (!next) {
+        return {
+          ids: [],
+          error:
+            "Not enough questions to complete the full simulated written exam. Add more questions.",
+        };
+      }
+      selected.push(next as WrittenQuestion | McqQuestion);
+      remaining[type] -= 1;
+    }
+  }
+
+  const uniqueIds = new Set(selected.map((question) => question.id));
+  if (uniqueIds.size !== selected.length) {
+    return {
+      ids: [],
+      error: "Unable to build a unique question set for the full simulated exam.",
+    };
+  }
+
+  const finalCounts = selected.reduce(
+    (acc, question) => {
+      const category = categorizeFullSim2Topic(question.topic, question.prompt);
+      if (category !== "other") {
+        acc[category] += 1;
+      }
+      return acc;
+    },
+    { fundamentals: 0, demand: 0, supply: 0, shift_trap: 0 },
+  );
+
+  if (
+    finalCounts.fundamentals < 1 ||
+    finalCounts.demand < 2 ||
+    finalCounts.supply < 2 ||
+    finalCounts.shift_trap < 1
+  ) {
+    return {
+      ids: [],
+      error:
+        "Unable to satisfy topic balancing for the full simulated written exam. Add more tagged questions.",
+    };
+  }
+
+  return { ids: selected.map((question) => question.id) };
 };
 
 const EXAM1_CATEGORY_ORDER = [
@@ -545,6 +1021,7 @@ const pickBalanced = (
 export const generateExamSession = (bank: ExamBank): string[] => {
   const targets: Record<QuestionType, number> = {
     mcq_single: 10,
+    mcq_multi: 0,
     short_answer: 5,
     scenario: 2,
     diagram_logic: 1,

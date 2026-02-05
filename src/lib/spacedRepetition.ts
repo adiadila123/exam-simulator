@@ -1,5 +1,5 @@
 import { extractBaseQuestionId } from "./examBank.ts";
-import type { ExamBank, McqQuestion } from "./examBank.ts";
+import type { ExamBank, McqQuestion, McqSingleQuestion } from "./examBank.ts";
 import type { AnswerMap } from "./examSession";
 
 export type ReviewStage = 0 | 1 | 2;
@@ -107,7 +107,7 @@ export const applyMcqResults = ({
   answers,
   date = new Date(),
 }: {
-  questions: McqQuestion[];
+  questions: McqSingleQuestion[];
   answers: AnswerMap;
   date?: Date;
 }) => {

@@ -1,0 +1,129 @@
+{
+  "pack": "Week 2 Demand & Supply",
+  "source": "Week 2 Seminar Notes",
+  "entries": [
+    {
+      "id": "W2DS-01",
+      "type": "mcq_single",
+      "topic": "Demand and Supply",
+      "subtopic": "Effective Demand",
+      "points": 2,
+      "prompt": "Effective demand is best described as:",
+      "options": {
+        "A": "desire for a product regardless of ability to pay",
+        "B": "willingness and ability to pay at a given price",
+        "C": "total output firms can produce",
+        "D": "the maximum price firms can charge"
+      },
+      "answer_key": "B",
+      "rationale": "Effective demand includes both willingness and ability to pay at a price."
+    },
+    {
+      "id": "W2DS-02",
+      "type": "mcq_single",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand Curve",
+      "points": 2,
+      "prompt": "A fall in the price of a good, ceteris paribus, causes:",
+      "options": {
+        "A": "a leftward shift of demand",
+        "B": "a rightward shift of demand",
+        "C": "a movement along the demand curve",
+        "D": "a movement along the supply curve"
+      },
+      "answer_key": "C",
+      "rationale": "Price changes cause movements along the demand curve, not shifts."
+    },
+    {
+      "id": "W2DS-03",
+      "type": "mcq_single",
+      "topic": "Demand and Supply",
+      "subtopic": "Shifters",
+      "points": 2,
+      "prompt": "Which would shift demand to the right for coffee?",
+      "options": {
+        "A": "A fall in the price of coffee",
+        "B": "A rise in the price of tea (a substitute)",
+        "C": "A fall in the price of sugar (a complement)",
+        "D": "A rise in the price of coffee"
+      },
+      "answer_key": "B",
+      "rationale": "Higher price of a substitute increases demand for coffee."
+    },
+    {
+      "id": "W2DS-04",
+      "type": "mcq_single",
+      "topic": "Demand and Supply",
+      "subtopic": "Normal vs Inferior",
+      "points": 2,
+      "prompt": "If income rises and demand for instant noodles falls, instant noodles are:",
+      "options": {
+        "A": "normal goods",
+        "B": "inferior goods",
+        "C": "Giffen goods",
+        "D": "complements"
+      },
+      "answer_key": "B",
+      "rationale": "Demand for inferior goods falls as income rises."
+    },
+    {
+      "id": "W2DS-05",
+      "type": "mcq_single",
+      "topic": "Demand and Supply",
+      "subtopic": "Supply Curve",
+      "points": 2,
+      "prompt": "A decrease in input costs will most likely:",
+      "options": {
+        "A": "shift supply to the left",
+        "B": "shift supply to the right",
+        "C": "cause a movement along the supply curve",
+        "D": "reduce demand"
+      },
+      "answer_key": "B",
+      "rationale": "Lower input costs increase supply, shifting the curve right."
+    },
+    {
+      "id": "W2DS-06",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Movements vs Shifts",
+      "points": 6,
+      "prompt": "Explain the difference between a movement along a curve and a shift of the curve in demand or supply.",
+      "model_answer": "A movement along a curve is caused by a change in the good's own price and changes the quantity demanded or supplied. A shift of the curve is caused by a non-price factor (income, tastes, input costs, technology) and changes demand or supply at every price.",
+      "mark_scheme": [
+        "Defines movement along curve as own-price change",
+        "Defines shift as change in non-price determinants",
+        "Mentions effect on quantity vs the whole curve"
+      ]
+    },
+    {
+      "id": "W2DS-07",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand Shifters",
+      "points": 6,
+      "prompt": "List four determinants of demand (other than price) and state how each affects the demand curve.",
+      "model_answer": "Examples include income (right for normal goods, left for inferior goods), prices of substitutes (right when substitutes rise), prices of complements (left when complements rise), tastes/preferences, expectations of future prices, and population. Each determinant shifts the entire demand curve.",
+      "mark_scheme": [
+        "Lists at least four determinants",
+        "Explains direction of shift for each",
+        "Clearly distinguishes from price movement"
+      ]
+    },
+    {
+      "id": "W2DS-08",
+      "type": "scenario",
+      "topic": "Demand and Supply",
+      "subtopic": "Shifts and Equilibrium",
+      "points": 10,
+      "prompt": "An increase in household income raises demand for restaurant meals. At the same time, a new cooking technology reduces restaurant costs. Use a demand-supply diagram to explain the likely impact on equilibrium price and quantity.",
+      "model_answer": "Demand shifts right due to higher income, and supply shifts right due to lower costs. Quantity increases for sure. Price effect is ambiguous because both curves shift right; it depends on the relative size of shifts.",
+      "mark_scheme": [
+        "Identifies demand shift right",
+        "Identifies supply shift right",
+        "States quantity increases",
+        "Notes price is ambiguous depending on shift size"
+      ]
+    }
+  ]
+}

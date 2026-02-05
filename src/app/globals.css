@@ -7,14 +7,14 @@
 :root {
   --bg: #f7f4ef;
   --surface: #ffffff;
-  --surface-muted: #f2efe9;
+  --surface-muted: #e7e1d8;
   --text: #131313;
-  --muted: #5a5a5a;
-  --accent: #145a6a;
-  --accent-strong: #0f3f4b;
-  --border: #e3ddd3;
+  --muted: #3f3f3f;
+  --accent: #0b4a58;
+  --accent-strong: #08333d;
+  --border: #d0c6b7;
   --danger: #b42318;
-  --success: #12805c;
+  --success: #0f6b4a;
   --shadow: 0 10px 30px rgba(18, 16, 12, 0.08);
   --font-sans: "Avenir Next", "Futura", "Trebuchet MS", sans-serif;
   --font-mono: "IBM Plex Mono", "Menlo", "Consolas", monospace;
@@ -146,15 +146,15 @@ main {
 }
 
 .btn-secondary {
-  background: var(--surface-muted);
-  color: var(--text);
-  border: 1px solid var(--border);
+  background: #e2dbd1;
+  color: #1a1a1a;
+  border: 1px solid #c9bfae;
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--accent-strong);
-  border: 1px solid var(--border);
+  border: 1px solid #c9bfae;
 }
 
 .btn-danger {
@@ -188,7 +188,7 @@ main {
   border-radius: 12px;
   border: 1px solid var(--border);
   cursor: pointer;
-  background: white;
+  background: var(--surface);
 }
 
 .option + .option {
@@ -226,8 +226,8 @@ main {
 
 .question-nav button {
   border-radius: 10px;
-  border: 1px solid var(--border);
-  background: white;
+  border: 1px solid #c9bfae;
+  background: var(--surface);
   padding: 8px 0;
   font-size: 12px;
 }

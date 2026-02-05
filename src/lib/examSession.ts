@@ -10,6 +10,7 @@ export type CalculationTableResponse = Record<string, string>;
 
 export type AnswerValue =
   | string
+  | string[]
   | DiagramLogicResponse
   | CalculationTableResponse;
 
@@ -33,6 +34,7 @@ export type ExamSession = {
   questionIds: string[];
   answers: AnswerMap;
   flags: string[];
+  selfMark?: Record<string, string[]>;
   startedAt: string;
   submittedAt?: string;
   currentIndex: number;

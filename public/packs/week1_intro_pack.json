@@ -1,0 +1,113 @@
+{
+  "pack": "Week 1 Intro",
+  "source": "Week 1 Seminar Notes",
+  "entries": [
+    {
+      "id": "W1I-01",
+      "type": "mcq_single",
+      "topic": "Intro Economics",
+      "subtopic": "Scarcity",
+      "points": 2,
+      "prompt": "Scarcity means:",
+      "options": {
+        "A": "resources are unlimited but wants are limited",
+        "B": "resources are limited and wants are unlimited",
+        "C": "prices are too high",
+        "D": "governments set all prices"
+      },
+      "answer_key": "B",
+      "rationale": "Scarcity is the basic economic problem of limited resources and unlimited wants."
+    },
+    {
+      "id": "W1I-02",
+      "type": "mcq_single",
+      "topic": "Intro Economics",
+      "subtopic": "Opportunity Cost",
+      "points": 2,
+      "prompt": "The opportunity cost of studying for an exam instead of working a paid shift is:",
+      "options": {
+        "A": "the tuition fee you paid",
+        "B": "the wage you could have earned from the shift",
+        "C": "the amount of sleep you got",
+        "D": "the exam grade"
+      },
+      "answer_key": "B",
+      "rationale": "Opportunity cost is the value of the next best alternative forgone."
+    },
+    {
+      "id": "W1I-03",
+      "type": "mcq_single",
+      "topic": "Intro Economics",
+      "subtopic": "Marginal Principle",
+      "points": 2,
+      "prompt": "The marginal principle says you should take an action if:",
+      "options": {
+        "A": "total benefits exceed total costs",
+        "B": "marginal benefit exceeds marginal cost",
+        "C": "average cost is falling",
+        "D": "profits are positive"
+      },
+      "answer_key": "B",
+      "rationale": "Decisions are optimal at the margin when marginal benefit exceeds marginal cost."
+    },
+    {
+      "id": "W1I-04",
+      "type": "mcq_single",
+      "topic": "Intro Economics",
+      "subtopic": "Micro vs Macro",
+      "points": 2,
+      "prompt": "Which is a macroeconomics question?",
+      "options": {
+        "A": "How does a firm choose its output level?",
+        "B": "Why did national unemployment rise last year?",
+        "C": "How does a household allocate its budget?",
+        "D": "What price should a retailer set?"
+      },
+      "answer_key": "B",
+      "rationale": "Macroeconomics studies economy-wide outcomes like unemployment and inflation."
+    },
+    {
+      "id": "W1I-05",
+      "type": "short_answer",
+      "topic": "Intro Economics",
+      "subtopic": "Opportunity Cost",
+      "points": 6,
+      "prompt": "Define opportunity cost and give a concrete example from student life.",
+      "model_answer": "Opportunity cost is the value of the next best alternative you give up when you make a choice. For example, if a student chooses to work a shift instead of attending a revision session, the opportunity cost is the learning and higher expected exam score they forgo.",
+      "mark_scheme": [
+        "Correct definition (next best alternative forgone)",
+        "Specific example described",
+        "Links choice to the foregone alternative"
+      ]
+    },
+    {
+      "id": "W1I-06",
+      "type": "short_answer",
+      "topic": "Intro Economics",
+      "subtopic": "Production Possibilities",
+      "points": 6,
+      "prompt": "Explain what a production possibilities frontier (PPF) shows and what a point inside the frontier means.",
+      "model_answer": "A PPF shows the maximum combinations of two goods that can be produced with given resources and technology. A point inside the frontier indicates inefficiency or underused resources.",
+      "mark_scheme": [
+        "Defines PPF as maximum feasible combinations",
+        "Mentions fixed resources/technology",
+        "Explains inside point as inefficient or underutilized"
+      ]
+    },
+    {
+      "id": "W1I-07",
+      "type": "scenario",
+      "topic": "Intro Economics",
+      "subtopic": "Economic Systems",
+      "points": 10,
+      "prompt": "A city must choose how to allocate a limited budget between public transport and parks. Describe how a market system and a command system might approach this decision, and note one trade-off for each.",
+      "model_answer": "In a market system, private firms and consumers determine allocations through prices, so investment flows to projects with higher expected demand or profitability. In a command system, a planner allocates funds based on objectives (equity, long-term planning). Market systems can be efficient but may underprovide public goods; command systems can target equity but may face information and incentive problems.",
+      "mark_scheme": [
+        "Explains market allocation via prices and private decisions",
+        "Explains command allocation via planning",
+        "Mentions a trade-off for market system",
+        "Mentions a trade-off for command system"
+      ]
+    }
+  ]
+}

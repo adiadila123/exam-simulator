@@ -139,10 +139,16 @@ test("exam bank supports session targets per type", () => {
   const bank = loadBank();
   const counts = bank.bank.reduce(
     (acc, question) => {
-      acc[question.type] += 1;
+      acc[question.type] = (acc[question.type] ?? 0) + 1;
       return acc;
     },
-    { mcq_single: 0, short_answer: 0, scenario: 0, diagram_logic: 0 },
+    {
+      mcq_single: 0,
+      mcq_multi: 0,
+      short_answer: 0,
+      scenario: 0,
+      diagram_logic: 0,
+    },
   );
 
   assert.ok(counts.mcq_single >= 10);

@@ -19,7 +19,7 @@ import {
   getSessionSeed,
   saveSession,
 } from "@/lib/examSession";
-import { scoreMcq } from "@/lib/scoring";
+import { scoreMcq, scoreMcqQuestion } from "@/lib/scoring";
 import {
   MISTAKE_REASONS,
   readMistakes,
@@ -38,6 +38,9 @@ const isAnsweredValue = (value: AnswerValue | undefined) => {
   }
   if (typeof value === "string") {
     return value.trim().length > 0;
+  }
+  if (Array.isArray(value)) {
+    return value.length > 0;
   }
   if (isDiagramResponse(value)) {
     return Boolean(
@@ -97,6 +100,10 @@ const readSelfMark = (sessionId: string) => {
 };
 
 const readSelfMarkForSession = (session: ExamSession) => {
+  const sessionData = session.selfMark ?? {};
+  if (Object.keys(sessionData).length > 0) {
+    return sessionData;
+  }
   const data = readSelfMark(session.id);
   if (Object.keys(data).length > 0) {
     return data;
@@ -195,6 +202,7 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
         sessionSetId.startsWith("pack-") ||
         sessionSetId.startsWith("retry-") ||
         sessionSetId.startsWith("drill-") ||
+        sessionSetId.startsWith("preset-") ||
         sessionSetId === "exam1_mcq" ||
         sessionSetId === "exam2_written";
       if (isCustom) {
@@ -252,28 +260,30 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
     );
   }
 
-  const score = scoreMcq(questions, selectedSession.answers);
+  const score = scoreMcq(questions, selectedSession.answers, selectedSession.mode);
   const isExam1 = selectedSession.examType === "exam1_mcq";
   const isExam2 = selectedSession.examType === "exam2_written";
   const answeredCount = Object.values(selectedSession.answers).filter((value) =>
     isAnsweredValue(value),
   ).length;
-  const wrongMcqs = questions.filter((question) => {
-    if (question.type !== "mcq_single") {
-      return false;
-    }
-    const answer = selectedSession.answers[question.id];
-    return typeof answer !== "string" || answer.trim() === ""
-      ? true
-      : answer !== question.answer_key;
-  });
+  const mcqQuestions = questions.filter(
+    (question): question is ExamQuestion & { type: "mcq_single" | "mcq_multi" } =>
+      question.type === "mcq_single" || question.type === "mcq_multi",
+  );
+  const isMcqCorrect = (question: ExamQuestion & { type: "mcq_single" | "mcq_multi" }) =>
+    scoreMcqQuestion(
+      question,
+      selectedSession.answers[question.id],
+      selectedSession.mode,
+    ).isCorrect;
+  const wrongMcqs = mcqQuestions.filter((question) => !isMcqCorrect(question));
   const isWrongForRetry = (question: ExamQuestion) => {
     const answer = selectedSession.answers[question.id];
-    if (question.type === "mcq_single") {
-      if (typeof answer !== "string" || answer.trim() === "") {
+    if (question.type === "mcq_single" || question.type === "mcq_multi") {
+      if (answer === undefined) {
         return true;
       }
-      return answer !== question.answer_key;
+      return !scoreMcqQuestion(question, answer, selectedSession.mode).isCorrect;
     }
     return !isAnsweredValue(answer);
   };
@@ -295,23 +305,13 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
     }
   });
 
-  const mcqQuestions = questions.filter(
-    (question): question is ExamQuestion & { type: "mcq_single" } =>
-      question.type === "mcq_single",
-  );
-  const mcqCorrectCount = mcqQuestions.filter((question) => {
-    const answer = selectedSession.answers[question.id];
-    return typeof answer === "string" && answer === question.answer_key;
-  }).length;
+  const mcqCorrectCount = mcqQuestions.filter((question) =>
+    isMcqCorrect(question),
+  ).length;
   const mcqPercent = mcqQuestions.length
     ? Math.round((mcqCorrectCount / mcqQuestions.length) * 100)
     : 0;
-  const exam1WrongMcqs = isExam1
-    ? mcqQuestions.filter((question) => {
-        const answer = selectedSession.answers[question.id];
-        return typeof answer !== "string" || answer !== question.answer_key;
-      })
-    : [];
+  const exam1WrongMcqs = isExam1 ? wrongMcqs : [];
   const exam1TopicBreakdown = isExam1
     ? mcqQuestions.reduce(
         (acc, question) => {
@@ -321,8 +321,13 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
           );
           acc[category] = acc[category] ?? { total: 0, correct: 0 };
           acc[category].total += 1;
-          const answer = selectedSession.answers[question.id];
-          if (typeof answer === "string" && answer === question.answer_key) {
+          if (
+            scoreMcqQuestion(
+              question,
+              selectedSession.answers[question.id],
+              selectedSession.mode,
+            ).isCorrect
+          ) {
             acc[category].correct += 1;
           }
           return acc;
@@ -332,7 +337,7 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
     : {};
 
   const writtenQuestions = questions.filter(
-    (question) => question.type !== "mcq_single",
+    (question) => question.type !== "mcq_single" && question.type !== "mcq_multi",
   );
 
   const updateSelfMark = (questionId: string, item: string, checked: boolean) => {
@@ -345,8 +350,11 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
     }
     next[questionId] = Array.from(current);
     setSelfMark(next);
-    if (selectedSession?.id) {
-      writeSelfMark(selectedSession.id, next);
+    if (selectedSession) {
+      saveSession({
+        ...selectedSession,
+        selfMark: next,
+      });
     }
   };
 
@@ -368,6 +376,24 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
     }
     if (selectedSession.setId?.startsWith("pack-")) {
       return "Seminar Pack";
+    }
+    if (selectedSession.setId === "preset-mock1") {
+      return "Mock Exam 1 – Week1-2 MCQ (20)";
+    }
+    if (selectedSession.setId === "preset-mock1b") {
+      return "Mock Exam 1 – Set B (Week1-2 MCQ 20)";
+    }
+    if (selectedSession.setId === "preset-mock1c") {
+      return "Mock Exam 1 – Set C (Advanced MCQ 20)";
+    }
+    if (selectedSession.setId === "preset-fullsim1") {
+      return "Full Simulated Exam 1 (Random)";
+    }
+    if (selectedSession.setId === "preset-fullsim2") {
+      return "Full Simulated Exam 2 (Random Written)";
+    }
+    if (selectedSession.setId === "preset-mock2") {
+      return "Mock Exam 2 – Written (Week1-2)";
     }
     if (selectedSession.examType === "legacy_set") {
       return `Set ${selectedSession.meta?.legacySetId ?? selectedSession.setId ?? "Legacy"}`;
@@ -514,13 +540,14 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
                   (item.examType === "legacy_set"
                     ? item.meta?.legacySetId ?? "legacy_set"
                     : item.examType);
-                const isCustom =
-                  sessionSetId === "review" ||
-                  sessionSetId.startsWith("pack-") ||
-                  sessionSetId.startsWith("retry-") ||
-                  sessionSetId.startsWith("drill-") ||
-                  sessionSetId === "exam1_mcq" ||
-                  sessionSetId === "exam2_written";
+      const isCustom =
+        sessionSetId === "review" ||
+        sessionSetId.startsWith("pack-") ||
+        sessionSetId.startsWith("retry-") ||
+        sessionSetId.startsWith("drill-") ||
+        sessionSetId.startsWith("preset-") ||
+        sessionSetId === "exam1_mcq" ||
+        sessionSetId === "exam2_written";
                 const questionsForAttempt = bank
                   ? isCustom
                     ? buildQuestionsFromIds(
@@ -554,6 +581,7 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
                 const attemptScore = scoreMcq(
                   questionsForAttempt,
                   item.answers,
+                  item.mode,
                 );
                 return (
                   <tr key={item.id}>
@@ -614,6 +642,11 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
             ) : (
               exam1WrongMcqs.map((question, index) => {
                 const userAnswer = selectedSession.answers[question.id];
+                const userText = Array.isArray(userAnswer)
+                  ? userAnswer.join(", ")
+                  : typeof userAnswer === "string" && userAnswer
+                    ? userAnswer
+                    : "No response";
                 return (
                   <div key={question.id} className="review-item">
                     <div className="question-meta">
@@ -624,12 +657,13 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
                     <p className="question-prompt">{question.prompt}</p>
                     <p>
                       <strong>Your answer:</strong>{" "}
-                      {typeof userAnswer === "string" && userAnswer
-                        ? userAnswer
-                        : "No response"}
+                      {userText}
                     </p>
                     <p>
-                      <strong>Correct answer:</strong> {question.answer_key}
+                      <strong>Correct answer:</strong>{" "}
+                      {question.type === "mcq_multi"
+                        ? question.correct_answers.join(", ")
+                        : question.answer_key}
                     </p>
                     {question.rationale && (
                       <p className="muted">
@@ -736,10 +770,15 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
           </h2>
           {questions.map((question, index) => {
             const userAnswer = selectedSession.answers[question.id];
-            const isMcq = question.type === "mcq_single";
+            const isMcq =
+              question.type === "mcq_single" || question.type === "mcq_multi";
             const isCorrect =
-              isMcq && typeof userAnswer === "string"
-                ? userAnswer === question.answer_key
+              isMcq
+                ? scoreMcqQuestion(
+                    question,
+                    userAnswer,
+                    selectedSession.mode,
+                  ).isCorrect
                 : false;
 
             return (
@@ -760,12 +799,17 @@ export default function ResultsSummary({ setId }: ResultsSummaryProps) {
                   <div className="grid">
                     <p>
                       <strong>Your answer:</strong>{" "}
-                      {typeof userAnswer === "string" && userAnswer
-                        ? userAnswer
-                        : "No response"}
+                      {Array.isArray(userAnswer)
+                        ? userAnswer.join(", ")
+                        : typeof userAnswer === "string" && userAnswer
+                          ? userAnswer
+                          : "No response"}
                     </p>
                     <p>
-                      <strong>Correct answer:</strong> {question.answer_key}
+                      <strong>Correct answer:</strong>{" "}
+                      {question.type === "mcq_multi"
+                        ? question.correct_answers.join(", ")
+                        : question.answer_key}
                     </p>
                     {!isCorrect && (
                       <label className="muted">
