@@ -11,6 +11,7 @@ import {
 } from "@/lib/examBank";
 import {
   getActiveSession,
+  removeSession,
   saveSession,
   type AnswerMap,
   type AnswerValue,
@@ -191,6 +192,7 @@ export default function ExamRunner({ setId, mode }: ExamRunnerProps) {
   const [submitReason, setSubmitReason] = useState<"manual" | "timeout" | null>(
     null,
   );
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
   const [remainingSeconds, setRemainingSeconds] = useState(() => {
     return computeRemainingSeconds({
       startedAt,
@@ -540,6 +542,27 @@ export default function ExamRunner({ setId, mode }: ExamRunnerProps) {
     setAnswers((prev) => ({ ...prev, [currentQuestion.id]: value }));
   };
 
+  const hasProgress = useMemo(() => {
+    const hasAnswer = Object.values(answers).some((value) => {
+      if (!value) {
+        return false;
+      }
+      if (typeof value === "string") {
+        return value.trim().length > 0;
+      }
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      }
+      if (typeof value === "object") {
+        return Object.values(value).some(
+          (entry) => typeof entry === "string" && entry.trim().length > 0,
+        );
+      }
+      return false;
+    });
+    return hasAnswer || flags.size > 0;
+  }, [answers, flags]);
+
   const toggleMarkScheme = () => {
     if (!currentQuestion || isLocked) {
       return;
@@ -641,6 +664,26 @@ export default function ExamRunner({ setId, mode }: ExamRunnerProps) {
             <span className="pill">Flagged {flags.size}</span>
             <span className={paceClass}>{paceStatus}</span>
           </div>
+          {sessionMode === "practice" && (
+            <div className="btn-row" style={{ marginBottom: 12 }}>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => {
+                  if (!hasProgress) {
+                    if (storedSession?.id) {
+                      removeSession(storedSession.id);
+                    }
+                    router.push("/");
+                    return;
+                  }
+                  setShowExitConfirm(true);
+                }}
+              >
+                Exit to Home
+              </button>
+            </div>
+          )}
           {isPackSession && (
             <label className="muted" style={{ display: "block", marginBottom: 8 }}>
               <input
@@ -658,6 +701,82 @@ export default function ExamRunner({ setId, mode }: ExamRunnerProps) {
           </strong>
         </div>
       </header>
+      {showExitConfirm && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(12, 12, 12, 0.4)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 16,
+            zIndex: 1000,
+          }}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="card"
+            style={{
+              maxWidth: 520,
+              width: "100%",
+              boxShadow: "0 24px 48px rgba(0,0,0,0.2)",
+            }}
+          >
+            <h2 className="title" style={{ fontSize: 22, marginBottom: 8 }}>
+              Exit practice session?
+            </h2>
+            <p className="muted">
+              You have progress in this session. Choose whether to save it or
+              discard it before exiting.
+            </p>
+            <div className="btn-row" style={{ marginTop: 16 }}>
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  if (storedSession) {
+                    saveSession({
+                      ...storedSession,
+                      questionIds: questionIdsRef.current,
+                      answers: answersRef.current,
+                      flags: Array.from(flagsRef.current),
+                      startedAt,
+                      locked: false,
+                      currentIndex: currentIndexRef.current,
+                    });
+                  }
+                  setShowExitConfirm(false);
+                  router.push("/");
+                }}
+              >
+                Save &amp; Exit
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => {
+                  if (storedSession?.id) {
+                    removeSession(storedSession.id);
+                  }
+                  setShowExitConfirm(false);
+                  router.push("/");
+                }}
+              >
+                Discard &amp; Exit
+              </button>
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => setShowExitConfirm(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="card">
         <div className="nav-bar">

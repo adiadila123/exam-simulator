@@ -199,6 +199,17 @@ export const saveSession = (session: ExamSession) => {
   setActiveSessionId(session.id);
 };
 
+export const removeSession = (id: string) => {
+  if (typeof window === "undefined") {
+    return;
+  }
+  const sessions = loadSessions().filter((session) => session.id !== id);
+  saveSessions(sessions);
+  if (getActiveSessionId() === id) {
+    setActiveSessionId(sessions[0]?.id ?? null);
+  }
+};
+
 export const clearSessionHistory = () => {
   if (typeof window === "undefined") {
     return;
