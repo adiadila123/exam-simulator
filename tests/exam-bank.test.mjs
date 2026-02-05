@@ -3,18 +3,17 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseExamBank } from "../src/lib/examBank.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-const stripJsonComments = (raw) => raw.replace(/\/\*[\s\S]*?\*\//g, "").trim();
 
 const loadBank = () => {
   const raw = fs.readFileSync(
     path.join(__dirname, "..", "public", "economics_exam_bank_v1.json"),
     "utf8",
   );
-  return JSON.parse(stripJsonComments(raw));
+  return parseExamBank(raw);
 };
 
 test("exam bank includes sets A, B, C", () => {
@@ -57,6 +56,23 @@ test("mcq scoring with all-correct answers yields full points", () => {
 
   assert.ok(available > 0);
   assert.equal(earned, available);
+});
+
+test("parseExamBank throws a friendly error on invalid bank", () => {
+  const badBank = JSON.stringify({ version: "1.0" });
+  assert.throws(
+    () => parseExamBank(badBank),
+    (err) =>
+      err instanceof Error &&
+      err.message.includes("Exam bank validation failed"),
+  );
+});
+
+test("parseExamBank throws a friendly error on invalid JSON", () => {
+  assert.throws(
+    () => parseExamBank("{ invalid"),
+    (err) => err instanceof Error && err.message.includes("Invalid JSON"),
+  );
 });
 
 const categorize = (topic, prompt) => {

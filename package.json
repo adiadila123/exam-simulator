@@ -7,12 +7,13 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/exam-bank.test.mjs"
+    "test": "node --test --experimental-strip-types tests/*.mjs tests/*.ts"
   },
   "dependencies": {
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^20",

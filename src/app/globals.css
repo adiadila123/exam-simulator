@@ -117,6 +117,11 @@ main {
   color: var(--danger);
 }
 
+.pill-success {
+  background: rgba(18, 128, 92, 0.12);
+  color: var(--success);
+}
+
 .btn {
   border: none;
   border-radius: 999px;
@@ -236,6 +241,34 @@ main {
   border-color: var(--danger);
 }
 
+.question-nav button[data-answered="true"] {
+  border-color: var(--success);
+  background: rgba(18, 128, 92, 0.1);
+}
+
+.navigator {
+  margin-top: 18px;
+}
+
+.navigator-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.toggle input {
+  accent-color: var(--accent);
+}
+
 .score {
   font-size: 28px;
   margin: 0;
@@ -255,6 +288,57 @@ main {
   border-top: none;
   padding-top: 0;
   margin-top: 0;
+}
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  background: var(--surface-muted);
+}
+
+.scheme {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.diagram-answer {
+  display: grid;
+  gap: 16px;
+}
+
+.diagram-row {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.diagram-answer label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.diagram-answer select {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  background: white;
+}
+
+.radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
 }
 
 @media (max-width: 640px) {

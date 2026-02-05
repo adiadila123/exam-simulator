@@ -1,0 +1,192 @@
+{
+  "pack": "Week 2 Demand & Supply",
+  "source": "Week 2 Seminar Exercises and Solutions",
+  "entries": [
+    {
+      "id": "W2-D-01",
+      "week": 2,
+      "part": "Demand",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 6,
+      "prompt": "Explain  how each  of the following  leads  economists  to believe  that demand  falls for a\nparticular good as its price rises (that demand is downward sloping):\n- Diminishing  marginal  utility\n- The income  effect\n- The substitution  effect",
+      "model_answer": "Explain  how each  of the following  leads  economists  to believe  that demand  falls for a\nparticular good as its price rises (that demand is downward sloping):\n- Diminishing  marginal  utility\n- The income  effect\n- The substitution  effect\n Diminishing marginal utility suggests that as an individual consumes more of a good, the\nutility (pleasure)  that each additional unit  of consumption brings falls. Correspondingly, the\nprice she  is willing  to pay for each  additional  unit falls, which  therefore  leads  to a downward\nsloping  demand curve: higher quantities of demand can only be achieved through lower\nprices.\nThe income effect states that demand is downward sloping because as the price of a good\nincreases,  the lower  the income  I have  relative  to that price,  and therefore  the less I am\nlikely  to demand of the higher priced good. The income of individuals is really a relative\nconcept – the absolute  amount  of your money  is worthless  to you, it is what  it can buy\nwhich  is of significance, and what your money can buy is determined by the price of the\ngoods you want to buy.\nTherefore, as the price of a good rises, your income relatively falls and therefore if you\nwant to maintain  your consumption  of that good  you can buy fewer  other  goods:  your likely\nresponse  to demand less of the higher priced item.\nThe substitution  effect  states  that as the price  of one good  rises  relative  to another  good  of\nsimilar design, the  more  we are likely to demand  the second  good, and  therefore  the less\nwe will demand the good for which the price has risen. This could work in two ways: first,\nyou may demand the more expensive of two goods, but as the price rises of this the\ncheaper version becomes more attractive; or, you may demand the cheaper good, but if\nthe price of the cheaper good rises, the extra quality of the more expensive good becomes\nmore attractive: it is the relative price which  is moving which is the most important part\nhere.",
+      "mark_scheme": [
+        "Explains diminishing marginal utility and link to lower additional willingness to pay",
+        "Explains income effect (real purchasing power changes)",
+        "Explains substitution effect (relative price change)",
+        "Links each to downward-sloping demand"
+      ]
+    },
+    {
+      "id": "W2-D-02",
+      "week": 2,
+      "part": "Demand",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 6,
+      "prompt": "Think  of diminishing  marginal  utility  and your own personal  preferences  for products:\n- Can you think  of a product  for which  your demand  for it decreases  as you\nconsume  more  of it?\n- Can you think  of a product  for which  the more  you consume,  the more  you want\nit? That is, a product for which you do not experience diminishing marginal utility?",
+      "model_answer": "Think  of diminishing  marginal  utility  and your own personal  preferences  for products:\n- Can you think  of a product  for which  your demand  for it decreases  as you\nconsume  more  of it?\n- Can you think  of a product  for which  the more  you consume,  the more  you want\nit? That is, a product for which you do not experience diminishing marginal\nutility?",
+      "mark_scheme": []
+    },
+    {
+      "id": "W2-D-03",
+      "week": 2,
+      "part": "Demand",
+      "type": "diagram_logic",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 6,
+      "prompt": "Using  diagrams,  illustrate  the impact  of the following  on a typical  demand  curve.\ni. A decrease  in price\nii. A decrease  in income\niii. An increase  in the desirability  of the good",
+      "model_answer": "i.  A decrease in price\nii. A decrease  in income\niii. An increase  in the desirability  of the good\n This is a personal question asking you to reflect upon your own demand preferences. I think for\nme, a common  example  of the first option  would  be (most)  foods  whereby  the more  I eat the less\nI really want anymore. This is not always the case though – some food products can be quite\naddictive  for which  the diminishing  marginal  returns  does  not seem  to be present  (at least  over\nlow levels of consumption).\nAn example of the second product could be an addictive good – the more you consume the more\nyou want  to consume  more.  A more  mundane  example  for me might  be something  like electricity.\nI guess I consume quite a lot, but I do not experience diminishing marginal returns. One of the\nreasons for this would be because we use electricity in many different ways. I have diminishing\nmarginal utility in watching television, but if I was getting bored of this maybe I would go online –\nboth use electricity, but the way I am consuming it is very different (sort of).",
+      "mark_scheme": [
+        "Shows movement along demand curve for price decrease",
+        "Shows left shift for income decrease (normal good assumption)",
+        "Shows right shift for increased desirability/preferences",
+        "Correct labels of axes and equilibrium changes"
+      ]
+    },
+    {
+      "id": "W2-D-04",
+      "week": 2,
+      "part": "Demand",
+      "type": "mcq_single",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 2,
+      "prompt": "Which of the following could explain a rightward shift of the demand curve?",
+      "options": {
+        "A": "i only",
+        "B": "ii only",
+        "C": "ii and iv only",
+        "D": "i and iii only"
+      },
+      "answer_key": "C",
+      "rationale": "A rightward demand shift can be caused by an increase in the price of substitutes and a decrease in the price of complements; a change in the good’s own price causes movement along the curve."
+    },
+    {
+      "id": "W2-D-05",
+      "week": 2,
+      "part": "Demand",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 6,
+      "prompt": "When/why  might  a smooth  continuous  demand  curve  be an inappropriate  economic\nassumption?",
+      "model_answer": "When/why  might  a smooth  continuous  demand  curve  be an inappropriate\neconomic assumption?",
+      "mark_scheme": [
+        "Explains psychological pricing/threshold effects",
+        "Explains discrete choice/substitution leading to jumps",
+        "Explains why smoothness assumption may fail"
+      ]
+    },
+    {
+      "id": "W2-D-06",
+      "week": 2,
+      "part": "Demand",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 6,
+      "prompt": "Can you define  each  of the follow  goods,  and from your own experiences,  can you think  of\ngoods which you see as:\na. Normal  good\nb. Inferior  good\nc. Veblen  good\nAdditional questions",
+      "model_answer": "Can you define  each  of the follow goods,  and from your own experiences, can  you\nthink  of goods which you see as:\na. Normal  good\nb. Inferior  good\nc. Veblen  good\nAdditional  questions",
+      "mark_scheme": [
+        "Defines normal good (income ↑ demand ↑) and inferior good (income ↑ demand ↓)",
+        "Provides correct examples and reasoning"
+      ]
+    },
+    {
+      "id": "W2-D-07",
+      "week": 2,
+      "part": "Demand",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Demand",
+      "points": 6,
+      "prompt": "Below  is an extract  from “Demand  for full-time undergraduate  higher  education  (2013  cycle,\nMarch  deadline)”  produced  by UCAS  in July 2013:\n“In England,  the 18-year-old application  rate in 2013  increases  by 0.9 percentage  points\nto 35.1 per cent.  This increase is  similar to the typical increases seen between 2006 and\n2011,  but the application rate remains 2 percentage points below where it would be if\nthere had been a  similarly  typical  increase  of 1 percentage  point  in 2012  as well. The\n2013  application  rate is near the highest value recorded in recent cycles.\nThe application rate from Northern Ireland increases by 1.6 percentage points in 2013 to\n48.3 per cent,  the highest  recorded in  the period. In  Scotland, application  rates  continue\nthe recent trend of increasing slightly (0.3 percentage points per year) to 31.6 per cent,\nalso the highest recorded  in the period.  Application  rates  in Wales  decreased  slightly  (by\n0.2 percentage  points) to 29.9 per cent, but this is within the range of expected year to\nyear variability given the relatively small population and is still near to the highest value\nrecorded (30.1 per cent in 2012).”\nQuestions:\ni. What  are the problems  with trying  to infer a demand  curve  over\ndifferent  time periods?\nii. Independent  of these  problems,  what  can we intuitively  state  about  the\nstrength  of the relationship between prices and demand in the higher\neducation market in England?\niii. Is there  an intuitive  argument  for why higher  education  may be a Veblen\ngood?",
+      "model_answer": "Below  is an extract  from “Demand  for full-time undergraduate  higher  education\n(2013  cycle, March deadline)” produced by UCAS in July 2013:\n“In England, the 18 year old application rate in 2013 increases by 0.9 percentage points\nto 35.1 per cent. This increase is similar to the typical increases seen between 2006\nand 2011, but the application rate remains 2 percentage points below where it would be\nif there had been a similarly  typical  increase  of 1 percentage  point  in 2012  as well. The\n2013  application  rate is near the highest value recorded in recent cycles.\nThe application rate from Northern Ireland increases by 1.6 percentage points in 2013\nto 48.3 per cent, the highest recorded in the period. In Scotland, application rates\ncontinue the recent trend of increasing slightly (0.3 percentage points per year) to 31.6\nper cent, also the highest recorded  in the period.  Application  rates  in Wales  decreased\nslightly  (by 0.2 percentage  points) to 29.9 per cent, but this is within the range of\nexpected year to year variability given the relatively small population and is still near to\nthe highest value recorded (30.1 per cent in 2012).”\nQuestions:\ni. What  are the problems  with trying  to infer a demand  curve  over different\ntime periods?  This is a question designed to make you think a little more deeply about the assumptions commonly\nmade  and taken  for granted  in economics.  Types  of discussions  points  could  include:\n• A ‘Veblen good’  where an increase in prices leads to an increase in the quantity demanded.\nTypically  these  are thought  to be the case for status  goods  where  owning  it informs observers\nthat you can afford it.\n• Psychological  pricing.  Typically  goods  are priced  in round  numbers  and/or  with  the ending ‘99p’.\nThe concept behind this is that ‘£x.99’ seems cheaper than ‘£(x+1).00’. This would imply  that the\ndemand function is  not smooth but  exhibits big  jumps  when  moving across these psychological\nbarriers.\n• Other  causes  for discontinuity  in the demand  function  (that  is, not smooth).  For example if two\ngoods are very close substitutes, demand for one may be zero if the price goes above a certain\npoint.\n• A normal  good  is one which  as incomes  fall the quantity  demanded  decreases.  This in\nprinciple desc ribes most goods. A possible example is food.\n• An inferior  good  is one which  when  incomes  fall demand  increases.  A typical  example  is\nfood purchased from certain low budget supermarkets (e.g. Aldi).\n• A Veblen  good  is one where  as prices  rise the quantity  demanded  rises.  Typical  examples\ninclude status products as discussed above.\nii. Independent  of these  problems,  what  can we intuitively  state  about  the\nstrength  of the relationship between prices and demand in the higher\neducation market in England?\niii. Is there  an intuitive  argument  for why higher  education  may be a Veblen  good?\n There is a lot of economic research into the benefit of a university degree. Studies frequently\nshow that individuals with degrees will earn more over their lifetime than those individuals\nwithout, but why this happens is disputed. One prominent theory suggests that all a degree\nprovides is a signal to potential employers that highlights that an individual with a higher\neducation qualification is better than one without. Under this theory were prices to increase the\nsignal  would  become  more  exclusive  and therefore  be worth  more.  This in theory  could  lead  to an\nupward sloping demand curve both for higher education in general but also for individual\ninstitutions.  The problem arises from the fact that it is very hard to appeal to the ‘ceteris paribus’ assumption\nthat all other  things  are equal.  Over  the course  of a year  many  other  changes have  occurred  other\nthan a change in prices and as such it is hard (and possibly impossible) to isolate the relationship\nbetween prices and demand.\nDemand  for higher  education  in England  does  not seem  to be sensitive  to movements  in prices.\nDespite the increase in prices over the time period there has also been an increase in demand\n(although at lower rates than would have been anticipated at the old prices).",
+      "mark_scheme": [
+        "Defines law of demand",
+        "Explains causality from price changes to quantity demanded",
+        "Mentions ceteris paribus"
+      ]
+    },
+    {
+      "id": "W2-S-01",
+      "week": 2,
+      "part": "Supply",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Supply",
+      "points": 6,
+      "prompt": "Workers act as sellers of their time in the labour market in return for some\nwage. Let’s discover your individual supply curve for labour. For each hourly wage rate\nprovided in the accompanying table, determine how many hours you would be willing to\nwork each week. Then, plot your individual supply curve for labour. Are there wage rates at\nwhich you would not be willing to work at all? Use the concept of opportunity cost to briefly\nexplain your reasoning.\nHourly wage rate  Hours willing to work\neach week\n£10\n£20\n£30\n£40",
+      "model_answer": "Workers act as sellers of their time in the labour market in return for some\nwage. Let’s discover your individual supply curve for labour. For each hourly wage rate\nprovided in the accompanying table, determine how many hours you would be willing to\nwork each week. Then, plot your individual supply curve for labour. Are there wage rates at\nwhich you would not be willing to work at all? Use the concept of opportunity cost to\nbriefly explain your reasoning.\nHourly wage rate  Hours willing to work\neach week\n£10\n£20\n£30\n£40\nSolution\nStudents will each have their own answers for this question. Some may be willing to\nsupply a  large quantity of hours per week. Some may exhibit backward -bending labour\nsupply curves, which could lead to an interesting discussion around the law of supply in\nlabour markets and the incentives that drive supply.",
+      "mark_scheme": [
+        "Derives labour supply schedule based on wage rates",
+        "Explains trade-off between labour and leisure",
+        "Plots individual labour supply curve correctly"
+      ]
+    },
+    {
+      "id": "W2-S-02",
+      "week": 2,
+      "part": "Supply",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Supply",
+      "points": 6,
+      "prompt": "What is wrong with this statement?\nThe market supply for natural gas is the sum of all prices that natural gas producers are\nwilling and able to sell at for every quantity.",
+      "model_answer": "What is wrong with this statement?\nThe market supply for natural gas is the sum of all prices that natural gas producers are\nwilling and able to sell at for every quantity.\nSolution\nThe market supply curve displays the total amount of natural gas offered to consumers by\nall producers in the market at every price. Since suppliers naturally have different costs of\nproduction, they offer varying quantities of product at each market price. The market\nsupply for natural gas is thus the sum of the quantities that natural gas producers are\nwilling and able to sell at every price. If more producers enter the market, the market\nsupply will increase, and if producers exit the market, the market supply will decrease.",
+      "mark_scheme": [
+        "Correct definition: market supply is sum of quantities supplied at each price",
+        "Explains why statement is wrong"
+      ]
+    },
+    {
+      "id": "W2-S-03",
+      "week": 2,
+      "part": "Supply",
+      "type": "calculation_table",
+      "topic": "Demand and Supply",
+      "subtopic": "Supply",
+      "points": 10,
+      "prompt": "Suppose there are four gas stations in your town. The quantity of gas that each one willing\nis to supply each week at various prices is provided in the accompanying table. Determine\nthe quantity supplied for the entire market at each price and graph the market supply curve.\nIllustrate on your graph what happens to the supply curve when prices rise from £3 to £5.\nPrice per gallon  Station A  Station B  Station C  Station D\n£5 8,000  5,000  6,000  9,000\n£4 6,000  4,000  5,000  5,000\n£3 4,000  3,000  4,000  3,000\n£2 2,000  2,000  2,000  1,000\n£1 0 1,000  1,000  0",
+      "model_answer": "Suppose there are four gas stations in your town. The quantity of gas that each one\nwilling is to supply each week at various prices is provided in the accompanying table.\nDetermine the quantity supplied for the entire market at each price and graph the market\nsupply curve. Illustrate on your graph what happens to the supply curve when prices rise\nfrom £3 to £5.\nPrice per gallon  Station A  Station B  Station C  Station D\n£5 8,000  5,000  6,000  9,000\n£4 6,000  4,000  5,000  5,000\n£3 4,000  3,000  4,000  3,000\n£2 2,000  2,000  2,000  1,000\n£1 0 1,000  1,000  0\nSolution\nTo derive a market supply curve given the individual supply curves of the industry’s firms, sum the\nquantity supplied by each gas station at every price. The market supply at each price is listed in the\ntable below. When the price increases from £3 to £5, the quantity supplied in the market increases\nfrom 14,000 to 28,000.\nPrice per gallon  Market supply\n£5 28,000\n£4 20,000\n£3 14,000\n£2 7,000\n£1 2,000",
+      "answer_data": {
+        "market_supply": {
+          "£5": 28000,
+          "£4": 20000,
+          "£3": 14000,
+          "£2": 7000,
+          "£1": 2000
+        },
+        "change_3_to_5": {
+          "from": 14000,
+          "to": 28000
+        }
+      },
+      "mark_scheme": [
+        "Correctly sums quantities across stations at each price",
+        "Correctly identifies movement along supply curve when price rises from £3 to £5",
+        "Accurate graph interpretation (upward sloping, higher Qs at higher P)"
+      ]
+    },
+    {
+      "id": "W2-S-04",
+      "week": 2,
+      "part": "Supply",
+      "type": "short_answer",
+      "topic": "Demand and Supply",
+      "subtopic": "Supply",
+      "points": 6,
+      "prompt": "Briefly explain whether each of the following represents a shift in supply or a change in\nquantity supplied. Use a graph to illustrate your answer.\na. An increase in the use of corn in the production of ethanol has raised the cost of corn to\nfarmers who use it as livestock feed.\nb. Speculators in world steel markets push the price of steel up, leading American steel\ncompanies to expand production.",
+      "model_answer": "Briefly explain whether each of the following represents a shift in supply or a change in\nquantity supplied. Use a graph to illustrate your answer.\na. An increase in the use of corn in the production of ethanol has raised the cost of corn to\nfarmers who use it as livestock feed.\nb. Speculators in world steel markets push the price of steel up, leading American steel\ncompanies to expand production.\nSolution\na) In the market for corn, increased demand for corn used in the production of ethanol has\ndriven the price of corn up. For farmers whose output is beef, corn is an input for their\nlivestock. When the price of an input increases, supply decreases, represented by a leftward\nshift of the supply curve.\nb) Increased demand in the commodities market has increased the price of steel. As a result,\nAmerican steel producers increase their quantity supplied by moving along their supply\ncurve to the higher price.",
+      "mark_scheme": [
+        "Classifies each event as shift vs movement along supply",
+        "Provides correct direction and reasoning using costs/price changes"
+      ]
+    }
+  ]
+}
