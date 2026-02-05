@@ -136,7 +136,43 @@ main {
 
 .btn:hover {
   background: var(--accent-strong);
+  color: #ffffff;
   transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  background: var(--accent-strong);
+  color: #ffffff;
+  outline: 2px solid rgba(8, 51, 61, 0.35);
+  outline-offset: 2px;
+}
+
+.btn-secondary:hover {
+  background: #3d3024;
+  color: #ffffff;
+  border-color: #3d3024;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:focus-visible {
+  background: #3d3024;
+  color: #ffffff;
+  border-color: #3d3024;
+  outline: 2px solid rgba(61, 48, 36, 0.35);
+  outline-offset: 2px;
+}
+
+.btn-ghost:hover {
+  background: var(--accent-strong);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-ghost:focus-visible {
+  background: var(--accent-strong);
+  color: #ffffff;
+  outline: 2px solid rgba(8, 51, 61, 0.35);
+  outline-offset: 2px;
 }
 
 .btn:disabled {
